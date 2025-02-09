@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thermomix TM6 2024 - Offre Exceptionnelle</title>
+    <style>
+        /* التصميم العام */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        /* الشريط العلوي */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #4CAF50; /* أخضر */
+            padding: 10px 20px;
+            color: white;
+        }
+
+        .navbar .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .navbar .menu-icon {
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .navbar .cart {
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* قائمة الخصوصية */
+        .menu {
+            display: none;
+            position: absolute;
+            top: 50px;
+            left: 20px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+        }
+
+        .menu a {
+            display: block;
+            color: #333;
+            text-decoration: none;
+            padding: 8px 0;
+        }
+
+        /* قسم التخفيض */
+        .discount {
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .discount h1 {
+            color: #4CAF50;
+        }
+
+        /* معرض الصور */
+        .slider {
+            display: flex;
+            overflow-x: auto;
+            padding: 20px;
+            background-color: #fff;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .slider img {
+            width: 200px;
+            height: auto;
+            margin-right: 10px;
+            border-radius: 10px;
+        }
+
+        /* معلومات المنتج */
+        .product-info {
+            padding: 20px;
+            background-color: #fff;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-info h2 {
+            color: #4CAF50;
+        }
+
+        .product-info button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .product-info button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- الشريط العلوي -->
+    <div class="navbar">
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <div class="logo">Thermomix</div>
+        <div class="cart">🛒</div>
+    </div>
+
+    <!-- قائمة الخصوصية -->
+    <div class="menu" id="menu">
+        <a href="#">Politique de confidentialité</a>
+        <a href="#">Conditions d'utilisation</a>
+    </div>
+
+    <!-- قسم التخفيض -->
+    <div class="discount">
+        <h1>Offre Exceptionnelle !</h1>
+        <p>Nous offrons une réduction incroyable sur le modèle Thermomix TM6 2024 pour célébrer le lancement du nouveau modèle 2025. Profitez-en maintenant !</p>
+    </div>
+
+    <!-- معرض الصور -->
+    <div class="slider">
+        <img src="image1.jpg" alt="Thermomix TM6 2024">
+        <img src="image2.jpg" alt="Thermomix TM6 2024">
+        <img src="image3.jpg" alt="Thermomix TM6 2024">
+        <img src="image4.jpg" alt="Thermomix TM6 2024">
+        <img src="image5.jpg" alt="Thermomix TM6 2024">
+        <img src="image6.jpg" alt="Thermomix TM6 2024">
+    </div>
+
+    <!-- معلومات المنتج -->
+    <div class="product-info">
+        <h2>Thermomix TM6 2024</h2>
+        <p>Découvrez le Thermomix TM6 2024, l'allié parfait pour votre cuisine. Avec ses fonctionnalités innovantes, il vous simplifie la vie.</p>
+        <ul>
+            <li>Écran tactile intuitif</li>
+            <li>12 fonctions intégrées</li>
+            <li>Recettes guidées</li>
+            <li>Design élégant et moderne</li>
+        </ul>
+        <button>Ajouter au panier</button>
+    </div>
+
+    <script>
+        // تفعيل القائمة
+        function toggleMenu() {
+            const menu = document.getElementById("menu");
+            if (menu.style.display === "block") {
+                menu.style.display = "none";
+            } else {
+                menu.style.display = "block";
+            }
+        }
+    </script>
+
+</body>
+</html>
