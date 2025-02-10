@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>متجري - أفضل منتج لك</title>
-
+    <title>Thermomix TM6 - Votre Robot Culinaire Multifonction</title>
+    
     <style>
+        /* إعدادات عامة */
         * {
             margin: 0;
             padding: 0;
@@ -24,7 +25,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: #333;
+            background-color: #2c7d36;
             color: white;
             padding: 10px 20px;
         }
@@ -42,8 +43,8 @@
         /* صورة الغلاف */
         .cover-image {
             width: 100%;
-            height: auto;
             max-height: 500px;
+            object-fit: cover;
             display: block;
         }
 
@@ -66,41 +67,6 @@
 
         .carousel img:hover {
             transform: scale(1.05);
-        }
-
-        /* نافذة تكبير الصور */
-        #modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
-
-        #modal img {
-            max-width: 90%;
-            max-height: 90%;
-            border-radius: 10px;
-        }
-
-        #modal:target {
-            display: flex;
-        }
-
-        #modal-close {
-            position: absolute;
-            top: 10px;
-            right: 20px;
-            color: white;
-            font-size: 24px;
-            cursor: pointer;
-            background: none;
-            border: none;
         }
 
         /* قسم المعلومات */
@@ -171,62 +137,61 @@
         }
     </style>
 </head>
-<body>
 
+<body>
     <!-- الشريط العلوي -->
     <nav class="navbar">
-        <span>اسم الموقع</span>
+        <span>Thermomix Boutique</span>
         <div>
-            <a href="#">معلومات</a>
-            <a href="#">سياسة الخصوصية</a>
-            <a href="#">تواصل معنا</a>
+            <a href="#">Informations</a>
+            <a href="#">Confidentialité</a>
+            <a href="#">Contactez-nous</a>
         </div>
-        <a href="#">🛒 سلة الشراء</a>
+        <a href="#">🛒 Panier</a>
     </nav>
 
     <!-- صورة الغلاف -->
-    <img class="cover-image" src="FR-TM-hero-image-OPclient-février_21x9.webp" alt="صورة الغلاف للمنتج">
+    <img class="cover-image" src="https://via.placeholder.com/1200x400" alt="Thermomix TM6">
 
     <!-- شريط الصور -->
     <div class="carousel">
-        <a href="#modal1"><img src="https://via.placeholder.com/300" alt="Image 1"></a>
-        <a href="#modal2"><img src="https://via.placeholder.com/300" alt="Image 2"></a>
-        <a href="#modal3"><img src="https://via.placeholder.com/300" alt="Image 3"></a>
-        <a href="#modal4"><img src="https://via.placeholder.com/300" alt="Image 4"></a>
-        <a href="#modal5"><img src="https://via.placeholder.com/300" alt="Image 5"></a>
-        <a href="#modal6"><img src="https://via.placeholder.com/300" alt="Image 6"></a>
+        <img src="https://via.placeholder.com/300" alt="Image 1">
+        <img src="https://via.placeholder.com/300" alt="Image 2">
+        <img src="https://via.placeholder.com/300" alt="Image 3">
+        <img src="https://via.placeholder.com/300" alt="Image 4">
+        <img src="https://via.placeholder.com/300" alt="Image 5">
+        <img src="https://via.placeholder.com/300" alt="Image 6">
     </div>
 
     <!-- قسم المعلومات -->
     <div class="section">
-        <h2>معلومات عن المنتج</h2>
-        <img src="https://via.placeholder.com/800x300" alt="صورة توضيحية">
-        <p>هذا المنتج يقدم لك أفضل تجربة استخدام مع مميزات عديدة تشمل...</p>
+        <h2>Description du produit</h2>
+        <img src="https://via.placeholder.com/800x300" alt="Produit">
+        <p>Le Thermomix TM6 est le robot culinaire multifonction ultime. Remplacez plus de 20 appareils électroménagers et simplifiez votre vie en cuisine.</p>
     </div>
 
     <!-- قسم الاستخدام -->
     <div class="section">
-        <h2>كيفية الاستخدام</h2>
-        <img src="https://via.placeholder.com/800x300" alt="صورة استخدام">
-        <p>للاستفادة القصوى من المنتج، يمكنك اتباع هذه الخطوات...</p>
+        <h2>Comment utiliser le produit ?</h2>
+        <img src="https://via.placeholder.com/800x300" alt="Utilisation">
+        <p>Utilisez le Thermomix TM6 pour cuisiner des repas délicieux en quelques minutes. Suivez ces étapes pour une expérience parfaite.</p>
     </div>
 
     <!-- فيديو اليوتيوب -->
     <div class="video-section">
-        <h2>شاهد الفيديو</h2>
+        <h2>Découvrez notre vidéo</h2>
         <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video"></iframe>
     </div>
 
     <!-- زر تواصل معنا -->
-    <a href="#" class="contact-btn">تواصل معنا هنا</a>
+    <a href="#" class="contact-btn">Contactez-nous ici</a>
 
     <!-- زر شراء الآن -->
-    <a href="#" class="buy-now">اشتر الآن</a>
+    <a href="#" class="buy-now">Achetez maintenant</a>
 
     <!-- الفوتر -->
     <footer>
-        <p>© 2025 جميع الحقوق محفوظة</p>
+        <p>© 2025 Tous droits réservés</p>
     </footer>
-
 </body>
 </html>
