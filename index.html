@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thermomix TM6 - Votre Meilleur Assistant Culinaire</title>
     <style>
-        /* تصميم أساسي */
         * {
             margin: 0;
             padding: 0;
@@ -16,55 +15,8 @@
             font-family: 'Arial', sans-serif;
             background-color: #f9f9f9;
             color: #333;
-            line-height: 1.6;
-            overflow-x: hidden;
         }
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-        }
-
-        /* الشريط العلوي */
-        .navbar {
-            background-color: #4CAF50;
-            padding: 15px 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .navbar .logo {
-            font-size: 28px;
-            font-weight: bold;
-            color: white;
-        }
-
-        .navbar .menu {
-            display: flex;
-            gap: 20px;
-        }
-
-        .navbar .menu a {
-            color: white;
-            font-size: 18px;
-        }
-
-        .cart {
-            font-size: 24px;
-            color: white;
-            cursor: pointer;
-        }
-
-        /* صورة البطل */
         .hero-section {
             background-color: #e9f7ef;
             padding: 40px 20px;
@@ -91,186 +43,125 @@
             background-color: #45a049;
         }
 
-        /* صور المنتج */
-        .product-images {
+        /* شريط تمرير الصور */
+        .carousel {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            overflow-x: auto;
             gap: 15px;
-            margin: 40px 0;
-        }
-
-        .product-images img {
-            max-width: 300px;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        /* معلومات المنتج */
-        .product-info {
-            padding: 40px 20px;
-            background-color: #ffffff;
-            margin-bottom: 40px;
-        }
-
-        .product-info h2 {
-            font-size: 32px;
-            color: #4CAF50;
-            margin-bottom: 20px;
-        }
-
-        .product-info p {
-            font-size: 18px;
-            margin-bottom: 20px;
-        }
-
-        /* معلومات الاستخدام */
-        .usage-section {
-            background-color: #f3f3f3;
-            padding: 40px 20px;
-            margin-bottom: 40px;
-        }
-
-        .usage-section h2 {
-            color: #4CAF50;
-            font-size: 32px;
-            margin-bottom: 20px;
-        }
-
-        .usage-section ul {
-            list-style-type: disc;
-            padding-left: 20px;
-            font-size: 18px;
-        }
-
-        /* قسم الفيديو */
-        .video-section {
-            text-align: center;
-            padding: 40px 20px;
-            background-color: #fff;
-            margin-bottom: 40px;
-        }
-
-        .video-section iframe {
-            width: 100%;
-            max-width: 800px;
-            height: 450px;
-            border: none;
-            border-radius: 10px;
-        }
-
-        /* قسم الاتصال */
-        .contact-section {
-            background-color: #ffffff;
-            padding: 40px 20px;
-            text-align: center;
-        }
-
-        .contact-section h2 {
-            color: #4CAF50;
-            font-size: 32px;
-            margin-bottom: 20px;
-        }
-
-        .contact-section button {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            font-size: 18px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
-        /* الفوتر */
-        footer {
-            background-color: #4CAF50;
-            color: white;
-            text-align: center;
             padding: 20px;
-            margin-top: 20px;
+            scroll-snap-type: x mandatory;
         }
 
-        footer a {
+        .carousel img {
+            height: 200px;
+            cursor: pointer;
+            border-radius: 10px;
+            scroll-snap-align: center;
+            transition: transform 0.2s;
+        }
+
+        .carousel img:hover {
+            transform: scale(1.05);
+        }
+
+        /* نافذة تكبير الصورة */
+        #modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        #modal img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+        }
+
+        #modal:target {
+            display: flex;
+        }
+
+        #modal-close {
+            position: absolute;
+            top: 10px;
+            right: 20px;
             color: white;
-            text-decoration: underline;
-        }
-
-        /* تصميم متجاوب */
-        @media (max-width: 768px) {
-            .product-images {
-                flex-direction: column;
-                align-items: center;
-            }
+            font-size: 24px;
+            cursor: pointer;
+            background: none;
+            border: none;
         }
     </style>
 </head>
 <body>
 
-    <!-- الشريط العلوي -->
-    <div class="navbar">
-        <div class="logo">Thermomix TM6</div>
-        <div class="cart">🛒</div>
-    </div>
-
     <!-- صورة البطل -->
     <div class="hero-section">
-        <img src="FR-TM-hero-image-OPclient-février_21x9.webp" alt="Thermomix TM6">
+        <img src="https://via.placeholder.com/800x500" alt="Thermomix TM6">
         <h1>Découvrez Thermomix TM6</h1>
         <p>La révolution culinaire à portée de main</p>
         <button>Achetez Maintenant</button>
     </div>
 
-    <!-- صور المنتج -->
-    <div class="product-images">
-        <img src="https://via.placeholder.com/300" alt="Image 1">
-        <img src="https://via.placeholder.com/300" alt="Image 2">
-        <img src="https://via.placeholder.com/300" alt="Image 3">
-        <img src="https://via.placeholder.com/300" alt="Image 4">
-        <img src="https://via.placeholder.com/300" alt="Image 5">
-        <img src="https://via.placeholder.com/300" alt="Image 6">
+    <!-- شريط تمرير الصور -->
+    <div class="carousel">
+        <a href="#modal1"><img src="https://via.placeholder.com/300" alt="Image 1"></a>
+        <a href="#modal2"><img src="https://via.placeholder.com/300" alt="Image 2"></a>
+        <a href="#modal3"><img src="https://via.placeholder.com/300" alt="Image 3"></a>
+        <a href="#modal4"><img src="https://via.placeholder.com/300" alt="Image 4"></a>
+        <a href="#modal5"><img src="https://via.placeholder.com/300" alt="Image 5"></a>
+        <a href="#modal6"><img src="https://via.placeholder.com/300" alt="Image 6"></a>
     </div>
 
-    <!-- معلومات المنتج -->
-    <div class="product-info">
-        <h2>Caractéristiques du Thermomix TM6</h2>
-        <p>Le Thermomix TM6 est l'allié indispensable pour toutes vos aventures culinaires :</p>
-        <ul>
-            <li>Écran tactile de haute qualité</li>
-            <li>Plus de 12 fonctions intégrées</li>
-            <li>Recettes guidées étape par étape</li>
-            <li>Facilité de nettoyage et entretien</li>
-            <li>Cuisson sous vide et fermentation</li>
-        </ul>
+    <!-- نافذة تكبير الصور -->
+    <div id="modal1" class="modal" role="dialog">
+        <div id="modal">
+            <button id="modal-close" onclick="history.back()">X</button>
+            <img src="https://via.placeholder.com/800" alt="Image 1 Enlarged">
+        </div>
     </div>
 
-    <!-- معلومات الاستخدام -->
-    <div class="usage-section">
-        <h2>Comment utiliser Thermomix TM6 ?</h2>
-        <ul>
-            <li>Préparez vos ingrédients et choisissez une recette sur l'écran.</li>
-            <li>Laissez-vous guider étape par étape.</li>
-            <li>Obtenez des plats délicieux en un rien de temps.</li>
-        </ul>
+    <div id="modal2" class="modal" role="dialog">
+        <div id="modal">
+            <button id="modal-close" onclick="history.back()">X</button>
+            <img src="https://via.placeholder.com/800" alt="Image 2 Enlarged">
+        </div>
     </div>
 
-    <!-- قسم الفيديو -->
-    <div class="video-section">
-        <h2>Découvrez le Thermomix TM6 en action</h2>
-        <iframe src="https://www.youtube.com/embed/example-video-id" allowfullscreen></iframe>
+    <div id="modal3" class="modal" role="dialog">
+        <div id="modal">
+            <button id="modal-close" onclick="history.back()">X</button>
+            <img src="https://via.placeholder.com/800" alt="Image 3 Enlarged">
+        </div>
     </div>
 
-    <!-- قسم الاتصال -->
-    <div class="contact-section">
-        <h2>Contactez-nous</h2>
-        <button>Envoyer un message</button>
+    <div id="modal4" class="modal" role="dialog">
+        <div id="modal">
+            <button id="modal-close" onclick="history.back()">X</button>
+            <img src="https://via.placeholder.com/800" alt="Image 4 Enlarged">
+        </div>
     </div>
 
-    <!-- الفوتر -->
-    <footer>
-        <p>&copy; 2025 Thermomix. Tous droits réservés. | <a href="#">Mentions légales</a> | <a href="#">Politique de confidentialité</a></p>
-    </footer>
+    <div id="modal5" class="modal" role="dialog">
+        <div id="modal">
+            <button id="modal-close" onclick="history.back()">X</button>
+            <img src="https://via.placeholder.com/800" alt="Image 5 Enlarged">
+        </div>
+    </div>
+
+    <div id="modal6" class="modal" role="dialog">
+        <div id="modal">
+            <button id="modal-close" onclick="history.back()">X</button>
+            <img src="https://via.placeholder.com/800" alt="Image 6 Enlarged">
+        </div>
+    </div>
 
 </body>
 </html>
