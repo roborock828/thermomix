@@ -182,59 +182,157 @@
 </head>
 <body>
 
-<!-- الشريط العلوي -->
-<div class="navbar">
-    <div class="menu-icon" onclick="toggleMenu()">☰</div>
-    <div class="logo">Thermomix®</div>
-    <div class="nav-links">
-        <a href="#accueil">Accueil</a>
-        <a href="#contact">Contact</a>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thermomix TM6</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+        }
+
+        /* ----------- NAVBAR ----------- */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #ffffff;
+            padding: 10px 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .menu-icon {
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+            color: #008000;
+        }
+
+        .cart {
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* ----------- SECTION THERMOMIX ----------- */
+        .product-container {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .product-container img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        .price {
+            font-size: 28px;
+            font-weight: bold;
+            color: #333;
+            margin: 10px 0;
+        }
+
+        .details {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .green-dot {
+            color: green;
+            font-size: 12px;
+        }
+
+        .eco {
+            font-size: 12px;
+            color: #777;
+        }
+
+        /* ----------- BOUTONS ----------- */
+        .btn {
+            display: block;
+            width: 90%;
+            max-width: 300px;
+            margin: 10px auto;
+            padding: 10px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .btn-green {
+            background-color: #008000;
+            color: white;
+        }
+
+        .btn-white {
+            border: 2px solid #008000;
+            color: #008000;
+            background: white;
+        }
+
+        /* ----------- BOUTON FLOTTANT ----------- */
+        .floating-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #008000;
+            color: white;
+            padding: 15px;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- الشريط العلوي -->
+    <div class="navbar">
+        <div class="menu-icon">☰</div>
+        <div class="logo">Thermomix</div>
+        <div class="cart">🛒</div>
     </div>
-    <div class="cart">🛒</div>
-</div>
 
-<style>
-    .navbar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background-color: #008000;
-        padding: 10px 20px;
-        color: white;
-        font-family: Arial, sans-serif;
-    }
+    <!-- Section produit -->
+    <div class="product-container">
+        <img src="thermomix.jpg" alt="Thermomix TM6">
+        <h2>Thermomix® TM6</h2>
 
-    .logo {
-        font-size: 20px;
-        font-weight: bold;
-    }
+        <ul style="text-align: left; display: inline-block;">
+            <li>Mieux manger quel que soit votre niveau de cuisine</li>
+            <li>Gagner du temps au quotidien dans la préparation de vos repas</li>
+            <li>Faire des économies en cuisinant maison</li>
+            <li>Ne jamais être à court d'inspiration devant la question "on mange quoi ce soir ?"</li>
+        </ul>
 
-    .nav-links {
-        display: flex;
-        gap: 15px;
-    }
+        <div class="price">1 499,00 €</div>
+        <p class="details">20% TVA comprise, frais de port offerts</p>
+        <p class="green-dot">🟢 Livraison sous 6 semaines</p>
+        <p class="eco">Dont 2.46 € TTC d’éco contribution DEEE</p>
 
-    .nav-links a {
-        color: white;
-        text-decoration: none;
-        font-size: 16px;
-        transition: 0.3s;
-    }
+        <a href="#" class="btn btn-green">🛒 Ajouter au panier</a>
+        <a href="#" class="btn btn-white">Financer votre Thermomix®</a>
+    </div>
 
-    .nav-links a:hover {
-        text-decoration: underline;
-    }
+    <!-- Bouton flottant -->
+    <div class="floating-button">↑</div>
 
-    .menu-icon {
-        font-size: 24px;
-        cursor: pointer;
-    }
+</body>
+</html>
 
-    .cart {
-        font-size: 24px;
-        cursor: pointer;
-    }
-</style>
 
     <!-- قائمة الخصوصية -->
     <div class="menu" id="menu">
