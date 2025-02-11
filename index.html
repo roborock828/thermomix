@@ -110,7 +110,7 @@
         }
 
         /* معلومات المنتج */
-        .product-info, .usage-info, .video-section, .contact, .faq {
+        .product-info, .usage-info, .video-section, .contact, .faq, .reasons {
             display: flex;
             flex-direction: column;
             padding: 40px 20px;
@@ -128,7 +128,7 @@
             border-radius: 10px;
         }
 
-        .product-info h2, .usage-info h2, .video-section h2, .contact h2, .faq h2 {
+        .product-info h2, .usage-info h2, .video-section h2, .contact h2, .faq h2, .reasons h2 {
             color: #4CAF50;
             font-size: 32px;
             margin-top: 0;
@@ -186,6 +186,42 @@
             color: #4CAF50;
             font-size: 24px;
             margin-bottom: 10px;
+        }
+
+        /* 4 أسباب لاختيار Thermomix® TM6 */
+        .reasons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .reasons .reason {
+            text-align: center;
+            padding: 20px;
+            background-color: #f1f1f1;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .reasons .reason:hover {
+            transform: translateY(-10px);
+        }
+
+        .reasons .reason img {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 15px;
+        }
+
+        .reasons .reason h3 {
+            color: #4CAF50;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .reasons .reason p {
+            font-size: 16px;
+            color: #555;
         }
 
         /* Footer */
@@ -254,6 +290,31 @@
                 <li>Facile à nettoyer</li>
                 <li>Garantie de 2 ans</li>
             </ul>
+        </div>
+    </div>
+
+    <!-- 4 أسباب لاختيار Thermomix® TM6 -->
+    <div class="reasons">
+        <h2>4 raisons de choisir le Thermomix® TM6</h2>
+        <div class="reason">
+            <img src="icon1.png" alt="Icon 1">
+            <h3>Polyvalent et compact</h3>
+            <p>Il remplace à lui seul plus de 20 appareils et propose 12 fonctions pour réussir toutes vos préparations de l’entrée au dessert.</p>
+        </div>
+        <div class="reason">
+            <img src="icon2.png" alt="Icon 2">
+            <h3>Repas maison rapides et sains</h3>
+            <p>Le Thermomix® simplifie votre quotidien en rendant la cuisine facile et agréable.</p>
+        </div>
+        <div class="reason">
+            <img src="icon3.png" alt="Icon 3">
+            <h3>Milliers de recettes sur Cookidoo®</h3>
+            <p>Le robot de cuisine connecté Thermomix® vous garantit une inspiration culinaire de tous les instants.</p>
+        </div>
+        <div class="reason">
+            <img src="icon4.png" alt="Icon 4">
+            <h3>Produit robuste et de haute qualité</h3>
+            <p>Récompensé et approuvé par des milliers d'utilisateurs.</p>
         </div>
     </div>
 
