@@ -55,6 +55,30 @@
             border-radius: 10px;
         }
 
+        /* معرض الصور */
+        .gallery {
+            display: flex;
+            overflow-x: auto;
+            padding: 20px;
+            background-color: #fff;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery img {
+            width: 200px;
+            height: auto;
+            margin-right: 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
         /* معلومات المنتج */
         .product-info, .usage-info, .video-section, .contact, .faq, .reasons {
             display: flex;
@@ -309,129 +333,95 @@
 </body>
 </html>
 
-<html lang="ar">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>معرض الصور</title>
-    <style>
-        /* تنسيق عام للصفحة */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-
-        /* تنسيق معرض الصور */
-        .gallery-container {
-            position: relative;
-            max-width: 800px;
-            width: 100%;
-            margin: auto;
-            overflow: hidden;
-            border: 5px solid #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-            border-radius: 10px;
-        }
-
-        .gallery {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
-
-        .gallery img {
-            width: 100%;
-            display: block;
-            flex-shrink: 0;
-            border-radius: 5px;
-        }
-
-        /* تنسيق الأسهم */
-        .nav-arrow {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            border: none;
-            padding: 15px;
-            cursor: pointer;
-            font-size: 24px;
-            border-radius: 50%;
-            transition: background-color 0.3s ease;
-        }
-
-        .nav-arrow:hover {
-            background-color: rgba(0, 0, 0, 0.8);
-        }
-
-        .left-arrow {
-            left: 10px;
-        }
-
-        .right-arrow {
-            right: 10px;
-        }
-    </style>
-</head>
-<body>
-
     <!-- معرض الصور -->
-    <div class="gallery-container">
-        <div class="gallery">
-            <img src="FR-thermomix-eshop-thermomix-tm6-1_1x1 (1).webp" alt="Thermomix TM6" loading="lazy">
-            <img src="FR-thermomix-eshop-thermomix-tm6-1_1_1x1.webp" alt="Thermomix TM6" loading="lazy">
-            <img src="FR-thermomix-eshop-thermomix-tm6-1_4_1x1.webp" alt="Thermomix TM6" loading="lazy">
-            <img src="FR-thermomix-eshop-thermomix-tm6-1_2_1x1.webp" alt="Thermomix TM6" loading="lazy">
-            <img src="FR-thermomix-eshop-thermomix-tm6-6_1x1.webp" alt="Thermomix TM6" loading="lazy">
-            <img src="FR-thermomix-eshop-thermomix-tm6-2_1x1.webp" alt="Thermomix TM6" loading="lazy">
-        </div>
-        <!-- أسهم التنقل -->
-        <button class="nav-arrow left-arrow">&#10094;</button>
-        <button class="nav-arrow right-arrow">&#10095;</button>
+<div class="gallery-container">
+    <div class="gallery">
+        <img src="FR-thermomix-eshop-thermomix-tm6-1_1x1 (1).webp" alt="Thermomix TM6" loading="lazy">
+        <img src="FR-thermomix-eshop-thermomix-tm6-1_1_1x1.webp" alt="Thermomix TM6" loading="lazy">
+        <img src="FR-thermomix-eshop-thermomix-tm6-1_4_1x1.webp" alt="Thermomix TM6" loading="lazy">
+        <img src="FR-thermomix-eshop-thermomix-tm6-1_2_1x1.webp" alt="Thermomix TM6" loading="lazy">
+        <img src="FR-thermomix-eshop-thermomix-tm6-6_1x1.webp" alt="Thermomix TM6" loading="lazy">
+        <img src="FR-thermomix-eshop-thermomix-tm6-2_1x1.webp" alt="Thermomix TM6" loading="lazy">
     </div>
+    <!-- أسهم التنقل -->
+    <button class="nav-arrow left-arrow">&#10094;</button>
+    <button class="nav-arrow right-arrow">&#10095;</button>
+</div>
 
-    <script>
-        // JavaScript للتحكم في معرض الصور
-        let currentIndex = 0;
-        const gallery = document.querySelector('.gallery');
-        const images = document.querySelectorAll('.gallery img');
-        const totalImages = images.length;
+/* تنسيق معرض الصور */
+.gallery-container {
+    position: relative;
+    max-width: 800px;
+    margin: auto;
+    overflow: hidden;
+}
 
-        // حدث النقر على السهم الأيسر
-        document.querySelector('.left-arrow').addEventListener('click', () => {
-            if (currentIndex > 0) {
-                currentIndex--;
-            } else {
-                currentIndex = totalImages - 1;
-            }
-            updateGallery();
-        });
+.gallery {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
 
-        // حدث النقر على السهم الأيمن
-        document.querySelector('.right-arrow').addEventListener('click', () => {
-            if (currentIndex < totalImages - 1) {
-                currentIndex++;
-            } else {
-                currentIndex = 0;
-            }
-            updateGallery();
-        });
+.gallery img {
+    width: 100%;
+    display: block;
+    flex-shrink: 0;
+}
 
-        // تحديث موقع المعرض
-        function updateGallery() {
-            const offset = -currentIndex * 100;
-            gallery.style.transform = `translateX(${offset}%)`;
-        }
-    </script>
+/* تنسيق الأسهم */
+.nav-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 24px;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
 
-</body>
-</html>
+.nav-arrow:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.left-arrow {
+    left: 10px;
+}
+
+.right-arrow {
+    right: 10px;
+}
+
+let currentIndex = 0;
+const gallery = document.querySelector('.gallery');
+const images = document.querySelectorAll('.gallery img');
+const totalImages = images.length;
+
+document.querySelector('.left-arrow').addEventListener('click', () => {
+    if (currentIndex > 0) {
+        currentIndex--;
+    } else {
+        currentIndex = totalImages - 1;
+    }
+    updateGallery();
+});
+
+document.querySelector('.right-arrow').addEventListener('click', () => {
+    if (currentIndex < totalImages - 1) {
+        currentIndex++;
+    } else {
+        currentIndex = 0;
+    }
+    updateGallery();
+});
+
+function updateGallery() {
+    const offset = -currentIndex * 100;
+    gallery.style.transform = `translateX(${offset}%)`;
+}
+
     <!-- معلومات المنتج -->
     <div class="product-info">
         <img src="thermomix_tm6_kitchen-woman_advisor_search-teaser_16x9.webp" alt="Thermomix TM6" loading="lazy">
