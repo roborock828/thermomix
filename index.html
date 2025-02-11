@@ -14,36 +14,6 @@
             color: #333;
             line-height: 1.6;
         }
-
-        /* الشريط العلوي */
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #4CAF50;
-            padding: 15px 30px;
-            color: white;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .navbar .logo {
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .navbar .menu-icon, .navbar .cart {
-            font-size: 24px;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        .navbar .menu-icon:hover, .navbar .cart:hover {
-            transform: scale(1.1);
-        }
-
         /* قائمة الخصوصية */
         .menu {
             display: none;
@@ -212,12 +182,61 @@
 </head>
 <body>
 
-    <!-- الشريط العلوي -->
-    <div class="navbar">
-        <div class="menu-icon" onclick="toggleMenu()">☰</div>
-        <div class="logo">Thermomix</div>
-        <div class="cart">🛒</div>
+<!-- الشريط العلوي -->
+<div class="navbar">
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    <div class="logo">Thermomix®</div>
+    <div class="nav-links">
+        <a href="#accueil">Accueil</a>
+        <a href="#produits">Produits</a>
+        <a href="#recettes">Recettes</a>
+        <a href="#contact">Contact</a>
     </div>
+    <div class="cart">🛒</div>
+</div>
+
+<style>
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #008000;
+        padding: 10px 20px;
+        color: white;
+        font-family: Arial, sans-serif;
+    }
+
+    .logo {
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 15px;
+    }
+
+    .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+        transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+        text-decoration: underline;
+    }
+
+    .menu-icon {
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    .cart {
+        font-size: 24px;
+        cursor: pointer;
+    }
+</style>
 
     <!-- قائمة الخصوصية -->
     <div class="menu" id="menu">
