@@ -20,10 +20,13 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: #4CAF50; /* أخضر */
+            background-color: #4CAF50;
             padding: 15px 30px;
             color: white;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         .navbar .logo {
@@ -31,14 +34,14 @@
             font-weight: bold;
         }
 
-        .navbar .menu-icon {
+        .navbar .menu-icon, .navbar .cart {
             font-size: 24px;
             cursor: pointer;
+            transition: transform 0.3s ease;
         }
 
-        .navbar .cart {
-            font-size: 24px;
-            cursor: pointer;
+        .navbar .menu-icon:hover, .navbar .cart:hover {
+            transform: scale(1.1);
         }
 
         /* قائمة الخصوصية */
@@ -51,6 +54,7 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             padding: 15px;
             border-radius: 10px;
+            z-index: 1000;
         }
 
         .menu a {
@@ -59,6 +63,11 @@
             text-decoration: none;
             padding: 10px 0;
             font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .menu a:hover {
+            color: #4CAF50;
         }
 
         /* صورة المنتج الكبيرة */
@@ -73,6 +82,7 @@
             height: auto;
             max-height: 600px;
             object-fit: cover;
+            border-radius: 10px;
         }
 
         /* معرض الصور */
@@ -100,8 +110,9 @@
         }
 
         /* معلومات المنتج */
-        .product-info {
+        .product-info, .usage-info, .video-section, .contact, .faq {
             display: flex;
+            flex-direction: column;
             padding: 40px 20px;
             background-color: #fff;
             margin: 20px;
@@ -109,14 +120,15 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        .product-info img {
-            width: 300px;
+        .product-info img, .usage-info img {
+            width: 100%;
+            max-width: 300px;
             height: auto;
-            margin-right: 30px;
+            margin-bottom: 20px;
             border-radius: 10px;
         }
 
-        .product-info h2 {
+        .product-info h2, .usage-info h2, .video-section h2, .contact h2, .faq h2 {
             color: #4CAF50;
             font-size: 32px;
             margin-top: 0;
@@ -132,49 +144,7 @@
             font-size: 18px;
         }
 
-        /* معلومات حول الاستخدام */
-        .usage-info {
-            display: flex;
-            padding: 40px 20px;
-            background-color: #fff;
-            margin: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .usage-info img {
-            width: 300px;
-            height: auto;
-            margin-right: 30px;
-            border-radius: 10px;
-        }
-
-        .usage-info h2 {
-            color: #4CAF50;
-            font-size: 32px;
-            margin-top: 0;
-        }
-
-        .usage-info p {
-            font-size: 18px;
-        }
-
         /* فيديو يوتيوب */
-        .video-section {
-            text-align: center;
-            padding: 40px 20px;
-            background-color: #fff;
-            margin: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .video-section h2 {
-            color: #4CAF50;
-            font-size: 32px;
-            margin-bottom: 20px;
-        }
-
         .video-section iframe {
             width: 100%;
             max-width: 800px;
@@ -184,25 +154,6 @@
         }
 
         /* قسم الاتصال */
-        .contact {
-            padding: 40px 20px;
-            background-color: #fff;
-            margin: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .contact h2 {
-            color: #4CAF50;
-            font-size: 32px;
-            margin-bottom: 20px;
-        }
-
-        .contact form {
-            display: flex;
-            flex-direction: column;
-        }
-
         .contact input, .contact textarea {
             margin-bottom: 15px;
             padding: 10px;
@@ -226,6 +177,17 @@
             background-color: #45a049;
         }
 
+        /* الأسئلة الشائعة */
+        .faq .question {
+            margin-bottom: 20px;
+        }
+
+        .faq .question h3 {
+            color: #4CAF50;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
         /* Footer */
         .footer {
             text-align: center;
@@ -239,6 +201,11 @@
             color: white;
             text-decoration: none;
             margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: #f1f1f1;
         }
     </style>
 </head>
@@ -260,22 +227,22 @@
 
     <!-- صورة المنتج الكبيرة -->
     <div class="hero-section">
-        <img src="FR-TM-hero-image-OPclient-février_21x9.webp" alt="Thermomix TM6">
+        <img src="FR-TM-hero-image-OPclient-février_21x9.webp" alt="Thermomix TM6" loading="lazy">
     </div>
 
     <!-- معرض الصور -->
     <div class="gallery">
-        <img src="image1.jpg" alt="Thermomix TM6">
-        <img src="image2.jpg" alt="Thermomix TM6">
-        <img src="image3.jpg" alt="Thermomix TM6">
-        <img src="image4.jpg" alt="Thermomix TM6">
-        <img src="image5.jpg" alt="Thermomix TM6">
-        <img src="image6.jpg" alt="Thermomix TM6">
+        <img src="image1.jpg" alt="Thermomix TM6" loading="lazy">
+        <img src="image2.jpg" alt="Thermomix TM6" loading="lazy">
+        <img src="image3.jpg" alt="Thermomix TM6" loading="lazy">
+        <img src="image4.jpg" alt="Thermomix TM6" loading="lazy">
+        <img src="image5.jpg" alt="Thermomix TM6" loading="lazy">
+        <img src="image6.jpg" alt="Thermomix TM6" loading="lazy">
     </div>
 
     <!-- معلومات المنتج -->
     <div class="product-info">
-        <img src="thermomix_tm6_kitchen-woman_advisor_search-teaser_16x9.webp" alt="Thermomix TM6">
+        <img src="thermomix_tm6_kitchen-woman_advisor_search-teaser_16x9.webp" alt="Thermomix TM6" loading="lazy">
         <div>
             <h2>Thermomix TM6</h2>
             <p>Le Thermomix TM6 est l'appareil de cuisine ultime. Voici ses caractéristiques :</p>
@@ -292,7 +259,7 @@
 
     <!-- معلومات حول الاستخدام -->
     <div class="usage-info">
-        <img src="FR-thermomix-tm6-lifestyle-cuisine_4x3.webp" alt="Thermomix TM6">
+        <img src="FR-thermomix-tm6-lifestyle-cuisine_4x3.webp" alt="Thermomix TM6" loading="lazy">
         <div>
             <h2>Comment utiliser le Thermomix TM6 ?</h2>
             <p>Le Thermomix TM6 est très simple à utiliser. Suivez les instructions à l'écran pour préparer vos plats préférés.</p>
@@ -302,7 +269,7 @@
     <!-- فيديو يوتيوب -->
     <div class="video-section">
         <h2>Découvrez le Thermomix TM6 en action</h2>
-        <iframe src="https://www.youtube.com/watch?v=yOP0aafM9bM&ab_channel=ThermomixFrance" title="Thermomix TM6" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/yOP0aafM9bM" title="Thermomix TM6" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
 
     <!-- قسم الاتصال -->
@@ -314,6 +281,19 @@
             <textarea placeholder="Votre message" rows="5" required></textarea>
             <button type="submit">Envoyer</button>
         </form>
+    </div>
+
+    <!-- الأسئلة الشائعة -->
+    <div class="faq">
+        <h2>FAQ</h2>
+        <div class="question">
+            <h3>Quelle est la garantie du Thermomix TM6 ?</h3>
+            <p>Le Thermomix TM6 est garanti 2 ans.</p>
+        </div>
+        <div class="question">
+            <h3>Comment nettoyer le Thermomix TM6 ?</h3>
+            <p>Il suffit de le nettoyer avec un chiffon humide.</p>
+        </div>
     </div>
 
     <!-- Footer -->
