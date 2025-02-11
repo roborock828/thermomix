@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thermomix® TM6 - Vorwerk</title>
     <style>
-        /* التصميم العام */
+        /* Styles généraux */
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
@@ -14,94 +14,154 @@
             color: #333;
             line-height: 1.6;
         }
-        /* قائمة الخصوصية */
-        .menu {
-            display: none;
-            position: absolute;
-            top: 70px;
-            left: 30px;
-            background-color: white;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 15px;
-            border-radius: 10px;
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #ffffff;
+            padding: 10px 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
             z-index: 1000;
         }
 
-        .menu a {
-            display: block;
-            color: #333;
-            text-decoration: none;
-            padding: 10px 0;
-            font-size: 16px;
-            transition: color 0.3s ease;
+        .menu-icon {
+            font-size: 24px;
+            cursor: pointer;
         }
 
-        .menu a:hover {
-            color: #4CAF50;
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+            color: #008000;
         }
 
-        /* صورة المنتج الكبيرة */
-        .hero-section {
-            position: relative;
+        .cart {
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Section produit */
+        .product-container {
             text-align: center;
-            color: white;
+            padding: 20px;
         }
 
-        .hero-section img {
-            width: 100%;
-            height: auto;
-            max-height: 600px;
-            object-fit: cover;
+        .product-container img {
+            max-width: 100%;
             border-radius: 10px;
         }
 
-/* تنسيق معرض الصور */
-.gallery-container {
-    position: relative;
-    max-width: 800px;
-    margin: auto;
-    overflow: hidden;
-}
+        .price {
+            font-size: 28px;
+            font-weight: bold;
+            color: #333;
+            margin: 10px 0;
+        }
 
-.gallery {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-}
+        .details {
+            font-size: 14px;
+            color: #555;
+        }
 
-.gallery img {
-    width: 100%;
-    display: block;
-    flex-shrink: 0;
-}
+        .green-dot {
+            color: green;
+            font-size: 12px;
+        }
 
-/* تنسيق الأسهم */
-.nav-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    padding: 15px;
-    cursor: pointer;
-    font-size: 24px;
-    border-radius: 50%;
-    transition: background-color 0.3s ease;
-}
+        .eco {
+            font-size: 12px;
+            color: #777;
+        }
 
-.nav-arrow:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-}
+        /* Boutons */
+        .btn {
+            display: block;
+            width: 90%;
+            max-width: 300px;
+            margin: 10px auto;
+            padding: 10px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 5px;
+            text-decoration: none;
+        }
 
-.left-arrow {
-    left: 10px;
-}
+        .btn-green {
+            background-color: #008000;
+            color: white;
+        }
 
-.right-arrow {
-    right: 10px;
-}
+        .btn-white {
+            border: 2px solid #008000;
+            color: #008000;
+            background: white;
+        }
 
-        /* معلومات المنتج */
+        /* Bouton flottant */
+        .floating-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #008000;
+            color: white;
+            padding: 15px;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        /* Galerie d'images */
+        .gallery-container {
+            position: relative;
+            max-width: 800px;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .gallery {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .gallery img {
+            width: 100%;
+            display: block;
+            flex-shrink: 0;
+        }
+
+        /* Flèches de navigation */
+        .nav-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 15px;
+            cursor: pointer;
+            font-size: 24px;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-arrow:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .left-arrow {
+            left: 10px;
+        }
+
+        .right-arrow {
+            right: 10px;
+        }
+
+        /* Informations sur le produit */
         .product-info, .usage-info, .video-section, .contact, .faq, .reasons {
             display: flex;
             flex-direction: column;
@@ -136,7 +196,7 @@
             font-size: 18px;
         }
 
-        /* فيديو يوتيوب */
+        /* Vidéo YouTube */
         .video-section iframe {
             width: 100%;
             max-width: 800px;
@@ -144,8 +204,8 @@
             border: none;
             border-radius: 10px;
         }
-       
-        /* 4 أسباب لاختيار Thermomix® TM6 */
+
+        /* 4 raisons de choisir Thermomix® TM6 */
         .reasons {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -204,157 +264,13 @@
 </head>
 <body>
 
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thermomix TM6</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #fff;
-        }
-
-        /* ----------- NAVBAR ----------- */
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: #ffffff;
-            padding: 10px 20px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .menu-icon {
-            font-size: 24px;
-            cursor: pointer;
-        }
-
-        .logo {
-            font-size: 20px;
-            font-weight: bold;
-            color: #008000;
-        }
-
-        .cart {
-            font-size: 24px;
-            cursor: pointer;
-        }
-
-        /* ----------- SECTION THERMOMIX ----------- */
-        .product-container {
-            text-align: center;
-            padding: 20px;
-        }
-
-        .product-container img {
-            max-width: 100%;
-            border-radius: 10px;
-        }
-
-        .price {
-            font-size: 28px;
-            font-weight: bold;
-            color: #333;
-            margin: 10px 0;
-        }
-
-        .details {
-            font-size: 14px;
-            color: #555;
-        }
-
-        .green-dot {
-            color: green;
-            font-size: 12px;
-        }
-
-        .eco {
-            font-size: 12px;
-            color: #777;
-        }
-
-        /* ----------- BOUTONS ----------- */
-        .btn {
-            display: block;
-            width: 90%;
-            max-width: 300px;
-            margin: 10px auto;
-            padding: 10px;
-            text-align: center;
-            font-size: 18px;
-            font-weight: bold;
-            border-radius: 5px;
-            text-decoration: none;
-        }
-
-        .btn-green {
-            background-color: #008000;
-            color: white;
-        }
-
-        .btn-white {
-            border: 2px solid #008000;
-            color: #008000;
-            background: white;
-        }
-
-        /* ----------- BOUTON FLOTTANT ----------- */
-        .floating-button {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #008000;
-            color: white;
-            padding: 15px;
-            border-radius: 50%;
-            font-size: 20px;
-            cursor: pointer;
-        }
-    </style>
-</head>
-<body>
-
-    <!-- الشريط العلوي -->
+    <!-- Navbar -->
     <div class="navbar">
         <div class="menu-icon">☰</div>
         <div class="logo">Thermomix</div>
         <div class="cart">🛒</div>
     </div>
 
-let currentIndex = 0;
-const gallery = document.querySelector('.gallery');
-const images = document.querySelectorAll('.gallery img');
-const totalImages = images.length;
-
-document.querySelector('.left-arrow').addEventListener('click', () => {
-    if (currentIndex > 0) {
-        currentIndex--;
-    } else {
-        currentIndex = totalImages - 1;
-    }
-    updateGallery();
-});
-
-document.querySelector('.right-arrow').addEventListener('click', () => {
-    if (currentIndex < totalImages - 1) {
-        currentIndex++;
-    } else {
-        currentIndex = 0;
-    }
-    updateGallery();
-});
-
-function updateGallery() {
-    const offset = -currentIndex * 100;
-    gallery.style.transform = `translateX(${offset}%)`;
-}
     <!-- Section produit -->
     <div class="product-container">
         <img src="FR-thermomix-eshop-thermomix-tm6-5_1x1.webp" alt="Thermomix TM6">
@@ -376,28 +292,22 @@ function updateGallery() {
         <a href="#" class="btn btn-white">Financer votre Thermomix®</a>
     </div>
 
-    <!-- Bouton flottant -->
-    <div class="floating-button">↑</div>
-
-</body>
-</html>
-
-    <!-- معرض الصور -->
-<div class="gallery-container">
-    <div class="gallery">
-        <img src="FR-thermomix-eshop-thermomix-tm6-1_1x1 (1).webp" alt="Thermomix TM6" loading="lazy">
-        <img src="FR-thermomix-eshop-thermomix-tm6-1_1_1x1.webp" alt="Thermomix TM6" loading="lazy">
-        <img src="FR-thermomix-eshop-thermomix-tm6-1_4_1x1.webp" alt="Thermomix TM6" loading="lazy">
-        <img src="FR-thermomix-eshop-thermomix-tm6-1_2_1x1.webp" alt="Thermomix TM6" loading="lazy">
-        <img src="FR-thermomix-eshop-thermomix-tm6-6_1x1.webp" alt="Thermomix TM6" loading="lazy">
-        <img src="FR-thermomix-eshop-thermomix-tm6-2_1x1.webp" alt="Thermomix TM6" loading="lazy">
+    <!-- Galerie d'images -->
+    <div class="gallery-container">
+        <div class="gallery">
+            <img src="FR-thermomix-eshop-thermomix-tm6-1_1x1 (1).webp" alt="Thermomix TM6" loading="lazy">
+            <img src="FR-thermomix-eshop-thermomix-tm6-1_1_1x1.webp" alt="Thermomix TM6" loading="lazy">
+            <img src="FR-thermomix-eshop-thermomix-tm6-1_4_1x1.webp" alt="Thermomix TM6" loading="lazy">
+            <img src="FR-thermomix-eshop-thermomix-tm6-1_2_1x1.webp" alt="Thermomix TM6" loading="lazy">
+            <img src="FR-thermomix-eshop-thermomix-tm6-6_1x1.webp" alt="Thermomix TM6" loading="lazy">
+            <img src="FR-thermomix-eshop-thermomix-tm6-2_1x1.webp" alt="Thermomix TM6" loading="lazy">
+        </div>
+        <!-- Flèches de navigation -->
+        <button class="nav-arrow left-arrow">&#10094;</button>
+        <button class="nav-arrow right-arrow">&#10095;</button>
     </div>
-    <!-- أسهم التنقل -->
-    <button class="nav-arrow left-arrow">&#10094;</button>
-    <button class="nav-arrow right-arrow">&#10095;</button>
-</div>
 
-    <!-- معلومات المنتج -->
+    <!-- Informations sur le produit -->
     <div class="product-info">
         <img src="thermomix_tm6_kitchen-woman_advisor_search-teaser_16x9.webp" alt="Thermomix TM6" loading="lazy">
         <div>
@@ -414,7 +324,7 @@ function updateGallery() {
         </div>
     </div>
 
-    <!-- معلومات حول الاستخدام -->
+    <!-- Informations sur l'utilisation -->
     <div class="usage-info">
         <img src="FR-thermomix-tm6-lifestyle-cuisine_4x3.webp" alt="Thermomix TM6" loading="lazy">
         <div>
@@ -423,182 +333,38 @@ function updateGallery() {
         </div>
     </div>
 
-    <!-- فيديو يوتيوب -->
+    <!-- Vidéo YouTube -->
     <div class="video-section">
         <h2>Découvrez le Thermomix TM6 en action</h2>
         <iframe src="https://www.youtube.com/embed/yOP0aafM9bM" title="Thermomix TM6" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
 
-    <!-- 4 أسباب لاختيار Thermomix® TM6 -->
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>4 Raisons de Choisir le Thermomix® TM6</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f8f8f8;
-            text-align: center;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 600px;
-            margin: 50px auto;
-        }
-
-        h2 {
-            color: #008000;
-            font-size: 24px;
-        }
-
-        .reason {
-            background: white;
-            border: 2px solid #008000;
-            border-radius: 10px;
-            padding: 20px;
-            margin: 15px 0;
-            display: flex;
-            align-items: center;
-            text-align: left;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .number {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: #008000;
-            color: white;
-            font-size: 18px;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 15px;
-        }
-
-        .content h3 {
-            margin: 0;
-            font-size: 18px;
-        }
-
-        .content p {
-            margin: 5px 0 0;
-            font-size: 14px;
-            color: #555;
-        }
-
-        /* Section Contact */
-        .contact-container {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-            max-width: 500px;
-            margin: 50px auto;
-            text-align: center;
-        }
-
-        .contact-container input,
-        .contact-container textarea {
-            width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-
-        .contact-container button {
-            background-color: #008000;
-            color: white;
-            border: none;
-            padding: 12px;
-            width: 100%;
-            font-size: 18px;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background 0.3s ease;
-        }
-
-        .contact-container button:hover {
-            background-color: #006400;
-        }
-
-        /* Section FAQ */
-        .faq {
-            max-width: 600px;
-            margin: 50px auto;
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-            text-align: left;
-        }
-
-        .question {
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #ddd;
-        }
-
-        .question h3 {
-            font-size: 18px;
-            margin-bottom: 5px;
-        }
-
-        .question p {
-            font-size: 14px;
-            color: #555;
-        }
-    </style>
-</head>
-<body>
-
-    <!-- Section Raisons -->
-    <div class="container">
-        <h2>4 raisons de choisir le Thermomix® TM6</h2>
-
+    <!-- 4 raisons de choisir Thermomix® TM6 -->
+    <div class="reasons">
         <div class="reason">
-            <div class="number">1</div>
-            <div class="content">
-                <h3>Polyvalent et compact</h3>
-                <p>Il remplace plus de 20 appareils et propose 12 fonctions pour toutes vos préparations.</p>
-            </div>
+            <img src="icon1.png" alt="Icon 1">
+            <h3>Polyvalent et compact</h3>
+            <p>Il remplace plus de 20 appareils et propose 12 fonctions pour toutes vos préparations.</p>
         </div>
-
         <div class="reason">
-            <div class="number">2</div>
-            <div class="content">
-                <h3>Repas maison rapides et sains</h3>
-                <p>Le Thermomix® simplifie votre quotidien en rendant la cuisine facile et agréable.</p>
-            </div>
+            <img src="icon2.png" alt="Icon 2">
+            <h3>Repas maison rapides et sains</h3>
+            <p>Le Thermomix® simplifie votre quotidien en rendant la cuisine facile et agréable.</p>
         </div>
-
         <div class="reason">
-            <div class="number">3</div>
-            <div class="content">
-                <h3>Milliers de recettes sur Cookidoo®</h3>
-                <p>Le robot de cuisine connecté vous garantit une inspiration culinaire infinie.</p>
-            </div>
+            <img src="icon3.png" alt="Icon 3">
+            <h3>Milliers de recettes sur Cookidoo®</h3>
+            <p>Le robot de cuisine connecté vous garantit une inspiration culinaire infinie.</p>
         </div>
-
         <div class="reason">
-            <div class="number">4</div>
-            <div class="content">
-                <h3>Produit robuste et de haute qualité</h3>
-                <p>Récompensé et approuvé par des milliers d'utilisateurs.</p>
-            </div>
+            <img src="icon4.png" alt="Icon 4">
+            <h3>Produit robuste et de haute qualité</h3>
+            <p>Récompensé et approuvé par des milliers d'utilisateurs.</p>
         </div>
     </div>
 
     <!-- Section Contact -->
-    <div class="contact-container">
+    <div class="contact">
         <h2>Contactez-nous</h2>
         <form>
             <input type="text" placeholder="Votre nom" required>
@@ -608,52 +374,42 @@ function updateGallery() {
         </form>
     </div>
 
-<!-- Section FAQ -->
-<div class="faq">
-    <h2>FAQ</h2>
-
-    <div class="question">
-        <h3>Quelle est la garantie du Thermomix TM6 ?</h3>
-        <p>Le Thermomix TM6 est garanti 2 ans.</p>
+    <!-- Section FAQ -->
+    <div class="faq">
+        <h2>FAQ</h2>
+        <div class="question">
+            <h3>Quelle est la garantie du Thermomix TM6 ?</h3>
+            <p>Le Thermomix TM6 est garanti 2 ans.</p>
+        </div>
+        <div class="question">
+            <h3>Comment nettoyer le Thermomix TM6 ?</h3>
+            <p>Il suffit de le nettoyer avec un chiffon humide.</p>
+        </div>
+        <div class="question">
+            <h3>Le Thermomix TM6 est-il facile à utiliser pour un débutant ?</h3>
+            <p>Oui, il dispose d'un écran tactile intuitif et d'un mode guidé pour simplifier chaque étape de la recette.</p>
+        </div>
+        <div class="question">
+            <h3>Quelles sont les principales fonctionnalités du Thermomix TM6 ?</h3>
+            <p>Il propose 12 fonctions dont pétrir, mixer, cuire à la vapeur, émulsionner, peser, et bien plus encore.</p>
+        </div>
+        <div class="question">
+            <h3>Y a-t-il des accessoires inclus avec le Thermomix TM6 ?</h3>
+            <p>Oui, il est livré avec un bol en acier inoxydable, un fouet, un panier cuisson, une spatule et un gobelet doseur.</p>
+        </div>
+        <div class="question">
+            <h3>Faut-il un abonnement pour accéder aux recettes Cookidoo® ?</h3>
+            <p>Oui, Cookidoo® est un service par abonnement offrant un accès à des milliers de recettes.</p>
+        </div>
+        <div class="question">
+            <h3>Le Thermomix TM6 consomme-t-il beaucoup d'électricité ?</h3>
+            <p>Non, il est conçu pour être économe en énergie tout en offrant des performances optimales.</p>
+        </div>
+        <div class="question">
+            <h3>Puis-je cuisiner sans connexion Internet ?</h3>
+            <p>Oui, vous pouvez utiliser les recettes déjà enregistrées sans connexion Internet.</p>
+        </div>
     </div>
-
-    <div class="question">
-        <h3>Comment nettoyer le Thermomix TM6 ?</h3>
-        <p>Il suffit de le nettoyer avec un chiffon humide.</p>
-    </div>
-
-    <div class="question">
-        <h3>Le Thermomix TM6 est-il facile à utiliser pour un débutant ?</h3>
-        <p>Oui, il dispose d'un écran tactile intuitif et d'un mode guidé pour simplifier chaque étape de la recette.</p>
-    </div>
-
-    <div class="question">
-        <h3>Quelles sont les principales fonctionnalités du Thermomix TM6 ?</h3>
-        <p>Il propose 12 fonctions dont pétrir, mixer, cuire à la vapeur, émulsionner, peser, et bien plus encore.</p>
-    </div>
-
-    <div class="question">
-        <h3>Y a-t-il des accessoires inclus avec le Thermomix TM6 ?</h3>
-        <p>Oui, il est livré avec un bol en acier inoxydable, un fouet, un panier cuisson, une spatule et un gobelet doseur.</p>
-    </div>
-
-    <div class="question">
-        <h3>Faut-il un abonnement pour accéder aux recettes Cookidoo® ?</h3>
-        <p>Oui, Cookidoo® est un service par abonnement offrant un accès à des milliers de recettes.</p>
-    </div>
-
-    <div class="question">
-        <h3>Le Thermomix TM6 consomme-t-il beaucoup d'électricité ?</h3>
-        <p>Non, il est conçu pour être économe en énergie tout en offrant des performances optimales.</p>
-    </div>
-
-    <div class="question">
-        <h3>Puis-je cuisiner sans connexion Internet ?</h3>
-        <p>Oui, vous pouvez utiliser les recettes déjà enregistrées sans connexion Internet.</p>
-    </div>
-
-</body>
-</html>
 
     <!-- Footer -->
     <div class="footer">
@@ -662,8 +418,40 @@ function updateGallery() {
         <a href="#">Contact</a>
     </div>
 
+    <!-- Bouton flottant -->
+    <div class="floating-button">↑</div>
+
     <script>
-        // تفعيل القائمة
+        // Script pour la galerie d'images
+        let currentIndex = 0;
+        const gallery = document.querySelector('.gallery');
+        const images = document.querySelectorAll('.gallery img');
+        const totalImages = images.length;
+
+        document.querySelector('.left-arrow').addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+            } else {
+                currentIndex = totalImages - 1;
+            }
+            updateGallery();
+        });
+
+        document.querySelector('.right-arrow').addEventListener('click', () => {
+            if (currentIndex < totalImages - 1) {
+                currentIndex++;
+            } else {
+                currentIndex = 0;
+            }
+            updateGallery();
+        });
+
+        function updateGallery() {
+            const offset = -currentIndex * 100;
+            gallery.style.transform = `translateX(${offset}%)`;
+        }
+
+        // Script pour le menu
         function toggleMenu() {
             const menu = document.getElementById("menu");
             if (menu.style.display === "block") {
