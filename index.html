@@ -249,7 +249,7 @@
         <button class="nav-arrow right-arrow">&#10095;</button>
     </div>
 
-    <!-- Informations sur le produit -->
+    <!-- معلومات المنتج -->
     <div class="product-info">
         <img src="thermomix_tm6_kitchen-woman_advisor_search-teaser_16x9.webp" alt="Thermomix TM6" loading="lazy">
         <div>
@@ -266,7 +266,7 @@
         </div>
     </div>
 
-    <!-- Informations sur l'utilisation -->
+    <!-- معلومات حول الاستخدام -->
     <div class="usage-info">
         <img src="FR-thermomix-tm6-lifestyle-cuisine_4x3.webp" alt="Thermomix TM6" loading="lazy">
         <div>
@@ -275,13 +275,14 @@
         </div>
     </div>
 
-    <!-- Vidéo YouTube -->
+    <!-- فيديو يوتيوب -->
     <div class="video-section">
         <h2>Découvrez le Thermomix TM6 en action</h2>
         <iframe src="https://www.youtube.com/embed/yOP0aafM9bM" title="Thermomix TM6" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
 
     <!-- 4 أسباب لاختيار Thermomix® TM6 -->
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -502,7 +503,9 @@
         <h3>Puis-je cuisiner sans connexion Internet ?</h3>
         <p>Oui, vous pouvez utiliser les recettes déjà enregistrées sans connexion Internet.</p>
     </div>
-    </div>
+
+</body>
+</html>
 
     <!-- Footer -->
     <div class="footer">
@@ -511,10 +514,17 @@
         <a href="#">Contact</a>
     </div>
 
-    <!-- Bouton flottant -->
-    <div class="floating-button">↑</div>
-
     <script>
+        // تفعيل القائمة
+        function toggleMenu() {
+            const menu = document.getElementById("menu");
+            if (menu.style.display === "block") {
+                menu.style.display = "none";
+            } else {
+                menu.style.display = "block";
+            }
+        }
+
         // Script pour la galerie d'images
         let currentIndex = 0;
         const gallery = document.querySelector('.gallery');
