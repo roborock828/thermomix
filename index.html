@@ -334,6 +334,7 @@
 </html>
 
     <!-- معرض الصور -->
+<div class="gallery-container">
     <div class="gallery">
         <img src="FR-thermomix-eshop-thermomix-tm6-1_1x1 (1).webp" alt="Thermomix TM6" loading="lazy">
         <img src="FR-thermomix-eshop-thermomix-tm6-1_1_1x1.webp" alt="Thermomix TM6" loading="lazy">
@@ -342,6 +343,84 @@
         <img src="FR-thermomix-eshop-thermomix-tm6-6_1x1.webp" alt="Thermomix TM6" loading="lazy">
         <img src="FR-thermomix-eshop-thermomix-tm6-2_1x1.webp" alt="Thermomix TM6" loading="lazy">
     </div>
+    <!-- أسهم التنقل -->
+    <button class="nav-arrow left-arrow">&#10094;</button>
+    <button class="nav-arrow right-arrow">&#10095;</button>
+</div>
+
+/* تنسيق معرض الصور */
+.gallery-container {
+    position: relative;
+    max-width: 800px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.gallery {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.gallery img {
+    width: 100%;
+    display: block;
+    flex-shrink: 0;
+}
+
+/* تنسيق الأسهم */
+.nav-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 24px;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.nav-arrow:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.left-arrow {
+    left: 10px;
+}
+
+.right-arrow {
+    right: 10px;
+}
+
+let currentIndex = 0;
+const gallery = document.querySelector('.gallery');
+const images = document.querySelectorAll('.gallery img');
+const totalImages = images.length;
+
+document.querySelector('.left-arrow').addEventListener('click', () => {
+    if (currentIndex > 0) {
+        currentIndex--;
+    } else {
+        currentIndex = totalImages - 1;
+    }
+    updateGallery();
+});
+
+document.querySelector('.right-arrow').addEventListener('click', () => {
+    if (currentIndex < totalImages - 1) {
+        currentIndex++;
+    } else {
+        currentIndex = 0;
+    }
+    updateGallery();
+});
+
+function updateGallery() {
+    const offset = -currentIndex * 100;
+    gallery.style.transform = `translateX(${offset}%)`;
+}
 
     <!-- معلومات المنتج -->
     <div class="product-info">
