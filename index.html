@@ -311,6 +311,8 @@
 </html>
 
     <!-- معرض الصور -->
+<!DOCTYPE html>
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -318,7 +320,7 @@
     <style>
         .gallery-container {
             position: relative;
-            width: 300px;
+            width: 400px;
             margin: auto;
             overflow: hidden;
         }
@@ -327,8 +329,9 @@
             transition: transform 0.5s ease-in-out;
         }
         .gallery img {
-            width: 300px;
+            width: 100%;
             height: auto;
+            flex-shrink: 0;
         }
         .arrow {
             position: absolute;
@@ -339,6 +342,7 @@
             border: none;
             cursor: pointer;
             padding: 10px;
+            z-index: 10;
         }
         .prev { left: 10px; }
         .next { right: 10px; }
@@ -375,7 +379,6 @@
     </script>
 </body>
 </html>
-
 
     <!-- معلومات المنتج -->
     <div class="product-info">
