@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traitement de Commande - Thermomix® TM6</title>
+    <style>
+        /* التصميم العام */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* الشريط العلوي */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #f8f8f8;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .menu-icon {
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #008000;
+        }
+
+        .cart {
+            position: relative;
+            font-size: 24px;
+        }
+
+        #cart-count {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: green;
+            color: white;
+            font-size: 12px;
+            padding: 2px 6px;
+            border-radius: 50%;
+        }
+
+        /* معلومات المنتج */
+        .product-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background-color: #fff;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-info img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+
+        .product-info h2 {
+            color: #4CAF50;
+            font-size: 32px;
+            margin-top: 0;
+        }
+
+        .product-info ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        .product-info ul li {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .price {
+            font-size: 28px;
+            font-weight: bold;
+            color: #333;
+            margin: 10px 0;
+        }
+
+        .details {
+            font-size: 14px;
+            color: #555;
+        }
+
+        /* معلومات العميل */
+        .client-info {
+            padding: 20px;
+            background-color: #fff;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .client-info h2 {
+            color: #4CAF50;
+            font-size: 24px;
+            margin-top: 0;
+        }
+
+        .client-info form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .client-info input {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .client-info button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .client-info button:hover {
+            background-color: #45a049;
+        }
+
+        /* Bouton Suivez */
+        .suivez-button {
+            text-align: center;
+            margin: 20px;
+        }
+
+        .suivez-button a {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .suivez-button a:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- الشريط العلوي -->
+    <div class="navbar">
+        <div class="menu-icon">☰</div>
+        <div class="logo">Thermomix</div>
+        <div class="cart">🛒 <span id="cart-count">1</span></div>
+    </div>
+
+    <!-- معلومات المنتج -->
+    <div class="product-info">
+        <img src="FR-thermomix-eshop-thermomix-tm6-5_1x1.webp" alt="Thermomix TM6">
+        <h2>Thermomix® TM6</h2>
+        <ul>
+            <li>Mieux manger quel que soit votre niveau de cuisine</li>
+            <li>Gagner du temps au quotidien dans la préparation de vos repas</li>
+            <li>Faire des économies en cuisinant maison</li>
+            <li>Ne jamais être à court d'inspiration devant la question "on mange quoi ce soir ?"</li>
+        </ul>
+        <div class="price">499,00 €</div>
+        <p class="details">20% TVA comprise, frais de port offerts</p>
+    </div>
+
+    <!-- معلومات العميل -->
+    <div class="client-info">
+        <h2>Informations du Client</h2>
+        <form>
+            <input type="text" placeholder="Nom complet" required>
+            <input type="email" placeholder="Adresse e-mail" required>
+            <input type="tel" placeholder="Numéro de téléphone" required>
+            <input type="text" placeholder="Adresse de livraison" required>
+            <button type="submit">Confirmer les informations</button>
+        </form>
+    </div>
+
+    <!-- Bouton Suivez -->
+    <div class="suivez-button">
+        <a href="paiement.html">Suivez pour le paiement</a>
+    </div>
+
+</body>
+</html>
