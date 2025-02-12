@@ -3,60 +3,209 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Traitement des données</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Traitement de Commande - Thermomix® TM6</title>
+    <style>
+        /* التصميم العام */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* الشريط العلوي */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #f8f8f8;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .menu-icon {
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #008000;
+        }
+
+        .cart {
+            position: relative;
+            font-size: 24px;
+        }
+
+        #cart-count {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: green;
+            color: white;
+            font-size: 12px;
+            padding: 2px 6px;
+            border-radius: 50%;
+        }
+
+        /* معلومات المنتج */
+        .product-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background-color: #fff;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .product-info img {
+            width: 100px; /* Photo sghira */
+            height: auto;
+            margin-bottom: 10px;
+            border-radius: 10px;
+        }
+
+        .product-info h2 {
+            color: #4CAF50;
+            font-size: 20px; /* Texte sghir */
+            margin-top: 0;
+        }
+
+        .product-info ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            font-size: 14px; /* Texte sghir */
+        }
+
+        .product-info ul li {
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 18px; /* Texte sghir */
+            font-weight: bold;
+            color: #333;
+            margin: 10px 0;
+        }
+
+        .details {
+            font-size: 12px; /* Texte sghir */
+            color: #555;
+        }
+
+        /* معلومات العميل */
+        .client-info {
+            padding: 20px;
+            background-color: #fff;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .client-info h2 {
+            color: #4CAF50;
+            font-size: 18px; /* Texte sghir */
+            margin-top: 0;
+        }
+
+        .client-info p {
+            font-size: 14px; /* Texte sghir */
+            color: #555;
+        }
+
+        .client-info form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .client-info input {
+            padding: 8px; /* Input sghir */
+            margin: 5px 0; /* Espacement sghir */
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px; /* Texte sghir */
+        }
+
+        .client-info button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 16px; /* Texte sghir */
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .client-info button:hover {
+            background-color: #45a049;
+        }
+
+        /* Bouton Finaliser */
+        .finaliser-button {
+            text-align: center;
+            margin: 20px;
+        }
+
+        .finaliser-button a {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px; /* Bouton sghir */
+            text-decoration: none;
+            font-size: 16px; /* Texte sghir */
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .finaliser-button a:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
 <body>
-    <!-- En-tête -->
-    <header>
-        <div class="logo">
-            <img src="logo.png" alt="Vorwerk">
-        </div>
-        <nav>
-            <ul>
-                <li><a href="#">Menu</a></li>
-                <li><a href="#">Recherche</a></li>
-                <li><a href="#">Conseiller</a></li>
-                <li><a href="#">Panier (1)</a></li>
-            </ul>
-        </nav>
-    </header>
-    
-    <!-- Contenu principal -->
-    <main>
-        <section class="product">
-            <h1>Thermomix® TM6</h1>
-            <img src="thermomix.jpg" alt="Thermomix TM6">
-            <p class="price">1 499,00 €</p>
-            <p>20% TVA comprise, frais de port offerts</p>
-            <p>Livraison sous 6 semaines</p>
-            <p>Dont 2.46 € TTC d’éco contribution DEEE</p>
-        </section>
-        
-        <section class="formulaire">
-            <h2>Finaliser votre achat</h2>
-            <form action="submit.php" method="POST">
-                <label for="prenom">Prénom *</label>
-                <input type="text" id="prenom" name="prenom" required>
-                
-                <label for="nom">Nom *</label>
-                <input type="text" id="nom" name="nom" required>
-                
-                <label for="rue">Rue *</label>
-                <input type="text" id="rue" name="rue" required>
-                
-                <label for="code-postal">Code postal *</label>
-                <input type="text" id="code-postal" name="code-postal" required>
-                
-                <button type="submit">Finaliser votre panier</button>
-            </form>
-        </section>
-    </main>
-    
-    <!-- Pied de page -->
-    <footer>
-        <p>Ces données sont traitées sur la base de votre consentement afin d’être contacté par un conseiller...</p>
-        <p>Pour toute information supplémentaire, consultez notre <a href="#">Politique de confidentialité</a>.</p>
-    </footer>
+
+    <!-- الشريط العلوي -->
+    <div class="navbar">
+        <div class="menu-icon">☰</div>
+        <div class="logo">Thermomix</div>
+        <div class="cart">🛒 <span id="cart-count">1</span></div>
+    </div>
+
+    <!-- معلومات المنتج -->
+    <div class="product-info">
+        <img src="FR-thermomix-eshop-thermomix-tm6-5_1x1.webp" alt="Thermomix TM6">
+        <h2>Thermomix® TM6</h2>
+        <ul>
+            <li>Mieux manger quel que soit votre niveau de cuisine</li>
+            <li>Gagner du temps au quotidien dans la préparation de vos repas</li>
+            <li>Faire des économies en cuisinant maison</li>
+            <li>Ne jamais être à court d'inspiration devant la question "on mange quoi ce soir ?"</li>
+        </ul>
+        <div class="price">499,00 €</div>
+        <p class="details">20% TVA comprise, frais de port offerts</p>
+    </div>
+
+    <!-- معلومات العميل -->
+    <div class="client-info">
+        <h2>Renseignez vos coordonnées</h2>
+        <p>Renseignez vos coordonnées dans le formulaire ci-après afin que nous vous redirigions vers le conseiller le plus proche de chez vous.</p>
+        <form>
+            <input type="text" placeholder="Prénom *" required>
+            <input type="text" placeholder="Nom *" required>
+            <input type="text" placeholder="Rue *" required>
+            <input type="text" placeholder="N° *" required>
+            <input type="text" placeholder="Code postal *" required>
+            <input type="text" placeholder="Ville *" required>
+            <a href="paiement.html">Finaliser votre panier</a>
+         </form>
+    </div>
+
 </body>
 </html>
