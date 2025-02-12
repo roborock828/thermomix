@@ -174,18 +174,6 @@
         }
 
         /* ----------- NAVBAR ----------- */
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: #ffffff;
-            padding: 10px 20px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
         .menu-icon {
             font-size: 24px;
             cursor: pointer;
@@ -195,11 +183,6 @@
             font-size: 20px;
             font-weight: bold;
             color: #008000;
-        }
-
-        .cart {
-            font-size: 24px;
-            cursor: pointer;
         }
 
         /* ----------- SECTION THERMOMIX ----------- */
@@ -277,13 +260,86 @@
 <body>
 
     <!-- الشريط العلوي -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thermomix TM6</title>
+    <style>
+        .btn {
+            padding: 10px 20px;
+            text-decoration: none;
+            display: inline-block;
+            margin: 5px;
+            border-radius: 5px;
+        }
+        .btn-green {
+            background-color: green;
+            color: white;
+        }
+        .btn-white {
+            background-color: white;
+            color: black;
+            border: 1px solid black;
+        }
+        .cart {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+        }
+        .floating-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: green;
+            color: white;
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #f8f8f8;
+            border-bottom: 1px solid #ddd;
+        }
+        .menu-icon {
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .cart {
+            position: relative;
+            font-size: 24px;
+        }
+        #cart-count {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: green;
+            color: white;
+            font-size: 12px;
+            padding: 2px 6px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- الشريط العلوي -->
     <div class="navbar">
         <div class="menu-icon">☰</div>
         <div class="logo">Thermomix</div>
-        <div class="cart">🛒</div>
+        <div class="cart">🛒 <span id="cart-count">0</span></div>
     </div>
 
-    <!-- Section produit -->
     <div class="product-container">
         <img src="FR-thermomix-eshop-thermomix-tm6-5_1x1.webp" alt="Thermomix TM6">
         <h2>Thermomix® TM6</h2>
@@ -295,17 +351,27 @@
             <li>Ne jamais être à court d'inspiration devant la question "on mange quoi ce soir ?"</li>
         </ul>
 
-        <div class="price">1 499,00 €</div>
+        <div class="price">499,00 €</div>
         <p class="details">20% TVA comprise, frais de port offerts</p>
         <p class="green-dot">🟢 Livraison sous 6 semaines</p>
         <p class="eco">Dont 2.46 € TTC d’éco contribution DEEE</p>
 
-        <a href="#" class="btn btn-green">🛒 Ajouter au panier</a>
+        <a href="#" class="btn btn-green" id="add-to-cart">🛒 Ajouter au panier</a>
         <a href="#" class="btn btn-white">Financer votre Thermomix®</a>
     </div>
 
     <!-- Bouton flottant -->
     <div class="floating-button">↑</div>
+
+    <script>
+        document.getElementById('add-to-cart').addEventListener('click', function(event) {
+            event.preventDefault();
+            let cartCount = document.getElementById('cart-count');
+            let count = parseInt(cartCount.textContent);
+            cartCount.textContent = count + 1;
+            window.location.href = 'traitement.html';
+        });
+    </script>
 
 </body>
 </html>
