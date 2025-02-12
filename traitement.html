@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Traitement de Commande - Thermomix® TM6</title>
     <style>
-        /* التصميم العام */
+        /* General Design */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -15,7 +15,7 @@
             line-height: 1.6;
         }
 
-        /* الشريط العلوي */
+        /* Header */
         .navbar {
             display: flex;
             justify-content: space-between;
@@ -52,7 +52,7 @@
             border-radius: 50%;
         }
 
-        /* معلومات المنتج */
+        /* Product Information */
         .product-info {
             display: flex;
             flex-direction: column;
@@ -66,7 +66,7 @@
         }
 
         .product-info img {
-            width: 100px; /* Photo sghira */
+            width: 100px;
             height: auto;
             margin-bottom: 10px;
             border-radius: 10px;
@@ -74,14 +74,14 @@
 
         .product-info h2 {
             color: #4CAF50;
-            font-size: 20px; /* Texte sghir */
+            font-size: 20px;
             margin-top: 0;
         }
 
         .product-info ul {
             list-style-type: disc;
             padding-left: 20px;
-            font-size: 14px; /* Texte sghir */
+            font-size: 14px;
         }
 
         .product-info ul li {
@@ -89,18 +89,18 @@
         }
 
         .price {
-            font-size: 18px; /* Texte sghir */
+            font-size: 18px;
             font-weight: bold;
             color: #333;
             margin: 10px 0;
         }
 
         .details {
-            font-size: 12px; /* Texte sghir */
+            font-size: 12px;
             color: #555;
         }
 
-        /* معلومات العميل */
+        /* Client Information */
         .client-info {
             padding: 20px;
             background-color: #fff;
@@ -111,12 +111,12 @@
 
         .client-info h2 {
             color: #4CAF50;
-            font-size: 18px; /* Texte sghir */
+            font-size: 18px;
             margin-top: 0;
         }
 
         .client-info p {
-            font-size: 14px; /* Texte sghir */
+            font-size: 14px;
             color: #555;
         }
 
@@ -126,11 +126,11 @@
         }
 
         .client-info input {
-            padding: 8px; /* Input sghir */
-            margin: 5px 0; /* Espacement sghir */
+            padding: 8px;
+            margin: 5px 0;
             border: 1px solid #ddd;
             border-radius: 5px;
-            font-size: 14px; /* Texte sghir */
+            font-size: 14px;
         }
 
         .client-info button {
@@ -138,7 +138,7 @@
             color: white;
             border: none;
             padding: 10px;
-            font-size: 16px; /* Texte sghir */
+            font-size: 16px;
             cursor: pointer;
             border-radius: 5px;
             margin-top: 10px;
@@ -148,38 +148,86 @@
             background-color: #45a049;
         }
 
-        /* Bouton Finaliser */
+        /* Finaliser Button */
         .finaliser-button {
             text-align: center;
             margin: 20px;
         }
 
-        .finaliser-button a {
+        .finaliser-button button {
             background-color: #4CAF50;
             color: white;
-            padding: 10px 20px; /* Bouton sghir */
+            padding: 10px 20px;
             text-decoration: none;
-            font-size: 16px; /* Texte sghir */
+            font-size: 16px;
             border-radius: 5px;
             cursor: pointer;
+            border: none;
         }
 
-        .finaliser-button a:hover {
+        .finaliser-button button:hover {
             background-color: #45a049;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .product-info, .client-info {
+                margin: 10px;
+            }
+
+            .product-info img {
+                width: 80px;
+            }
+
+            .product-info h2 {
+                font-size: 18px;
+            }
+
+            .product-info ul {
+                font-size: 12px;
+            }
+
+            .price {
+                font-size: 16px;
+            }
+
+            .details {
+                font-size: 10px;
+            }
+
+            .client-info h2 {
+                font-size: 16px;
+            }
+
+            .client-info p {
+                font-size: 12px;
+            }
+
+            .client-info input {
+                font-size: 12px;
+            }
+
+            .client-info button {
+                font-size: 14px;
+            }
         }
     </style>
 </head>
 <body>
-
-    <!-- الشريط العلوي -->
-    <div class="navbar">
-        <div class="menu-icon">☰</div>
+    <!-- Header -->
+    <header class="navbar">
+        <div class="menu-icon" aria-label="Menu">☰</div>
         <div class="logo">Thermomix</div>
-        <div class="cart">🛒 <span id="cart-count">1</span></div>
-    </div>
+        <div class="cart" aria-label="Panier">🛒 <span id="cart-count">1</span></div>
+    </header>
 
-    <!-- معلومات المنتج -->
-    <div class="product-info">
+    <!-- Product Information -->
+    <section class="product-info">
         <img src="FR-thermomix-eshop-thermomix-tm6-5_1x1.webp" alt="Thermomix TM6">
         <h2>Thermomix® TM6</h2>
         <ul>
@@ -190,24 +238,31 @@
         </ul>
         <div class="price">499,00 €</div>
         <p class="details">20% TVA comprise, frais de port offerts</p>
-    </div>
+    </section>
 
-    <!-- معلومات العميل -->
-    <div class="client-info">
+    <!-- Client Information -->
+    <section class="client-info">
         <h2>Renseignez vos coordonnées</h2>
         <p>Renseignez vos coordonnées dans le formulaire ci-après afin que nous vous redirigions vers le conseiller le plus proche de chez vous.</p>
-        <form>
-            <input type="text" placeholder="Prénom *" required>
-            <input type="text" placeholder="Nom *" required>
-            <input type="text" placeholder="Rue *" required>
-            <input type="text" placeholder="N° *" required>
-            <input type="text" placeholder="Code postal *" required>
-            <input type="text" placeholder="Ville *" required>
+        <form id="client-form">
+            <input type="text" id="first-name" name="first-name" placeholder="Prénom *" required>
+            <input type="text" id="last-name" name="last-name" placeholder="Nom *" required>
+            <input type="text" id="street" name="street" placeholder="Rue *" required>
+            <input type="text" id="street-number" name="street-number" placeholder="N° *" required>
+            <input type="text" id="postal-code" name="postal-code" placeholder="Code postal *" required>
+            <input type="text" id="city" name="city" placeholder="Ville *" required>
             <div class="finaliser-button">
-                <a href="paiement.html">Finaliser votre panier</a>
+                <button type="submit">Finaliser votre panier</button>
             </div>
         </form>
-    </div>
+    </section>
 
+    <script>
+        // JavaScript pour la validation du formulaire
+        document.getElementById('client-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Formulaire soumis avec succès!');
+        });
+    </script>
 </body>
 </html>
