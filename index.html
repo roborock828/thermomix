@@ -334,14 +334,71 @@
 </html>
 
     <!-- معرض الصور -->
-    <div class="gallery">
-        <img src="FR-thermomix-eshop-thermomix-tm6-1_1x1 (1).webp" alt="Thermomix TM6" loading="lazy">
-        <img src="FR-thermomix-eshop-thermomix-tm6-1_1_1x1.webp" alt="Thermomix TM6" loading="lazy">
-        <img src="FR-thermomix-eshop-thermomix-tm6-1_4_1x1.webp" alt="Thermomix TM6" loading="lazy">
-        <img src="FR-thermomix-eshop-thermomix-tm6-1_2_1x1.webp" alt="Thermomix TM6" loading="lazy">
-        <img src="FR-thermomix-eshop-thermomix-tm6-6_1x1.webp" alt="Thermomix TM6" loading="lazy">
-        <img src="FR-thermomix-eshop-thermomix-tm6-2_1x1.webp" alt="Thermomix TM6" loading="lazy">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galerie d'images</title>
+    <style>
+        .gallery-container {
+            position: relative;
+            width: 300px;
+            margin: auto;
+            overflow: hidden;
+        }
+        .gallery {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .gallery img {
+            width: 300px;
+            height: auto;
+        }
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+        .prev { left: 10px; }
+        .next { right: 10px; }
+    </style>
+</head>
+<body>
+    <div class="gallery-container">
+        <button class="arrow prev" onclick="moveSlide(-1)">&#10094;</button>
+        <div class="gallery" id="gallery">
+            <img src="FR-thermomix-eshop-thermomix-tm6-1_1x1.webp" alt="Thermomix TM6">
+            <img src="FR-thermomix-eshop-thermomix-tm6-1_1_1x1.webp" alt="Thermomix TM6">
+            <img src="FR-thermomix-eshop-thermomix-tm6-1_4_1x1.webp" alt="Thermomix TM6">
+            <img src="FR-thermomix-eshop-thermomix-tm6-1_2_1x1.webp" alt="Thermomix TM6">
+            <img src="FR-thermomix-eshop-thermomix-tm6-6_1x1.webp" alt="Thermomix TM6">
+            <img src="FR-thermomix-eshop-thermomix-tm6-2_1x1.webp" alt="Thermomix TM6">
+        </div>
+        <button class="arrow next" onclick="moveSlide(1)">&#10095;</button>
     </div>
+
+    <script>
+        let index = 0;
+        function moveSlide(direction) {
+            const gallery = document.getElementById('gallery');
+            const images = document.querySelectorAll('.gallery img');
+            const totalImages = images.length;
+            const imageWidth = images[0].clientWidth;
+            
+            index += direction;
+            if (index < 0) index = totalImages - 1;
+            if (index >= totalImages) index = 0;
+            
+            gallery.style.transform = `translateX(${-index * imageWidth}px)`;
+        }
+    </script>
+</body>
+</html>
+
 
     <!-- معلومات المنتج -->
     <div class="product-info">
