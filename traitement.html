@@ -3,288 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Traitement de Commande - Thermomix® TM6</title>
+    <title>Header aligné</title>
     <style>
-        /* Variables CSS */
-        :root {
-            --primary-color: #4CAF50;
-            --secondary-color: #45a049;
-            --background-color: #f9f9f9;
-            --text-color: #333;
-            --white: #ffffff;
-            --shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        /* General Design */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            line-height: 1.6;
-        }
-
-        /* Product Information */
-        .product-info {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
-            background-color: var(--white);
-            margin: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-        .product-info img {
-            width: 100px;
-            height: auto;
-            margin-bottom: 10px;
-            border-radius: 10px;
-        }
-
-        .product-info h2 {
-            color: var(--primary-color);
-            font-size: 20px;
-            margin-top: 0;
-        }
-
-        .product-info ul {
-            list-style-type: disc;
-            padding-left: 20px;
-            font-size: 14px;
-        }
-
-        .product-info ul li {
-            margin-bottom: 10px;
-        }
-
-        .price {
-            font-size: 18px;
-            font-weight: bold;
-            color: var(--text-color);
-            margin: 10px 0;
-        }
-
-        .details {
-            font-size: 12px;
-            color: #555;
-        }
-
-        /* Order Summary */
-        .order-summary {
-            padding: 20px;
-            background-color: var(--white);
-            margin: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .order-summary h2 {
-            color: var(--primary-color);
-            font-size: 18px;
-            margin-top: 0;
-        }
-
-        .order-summary p {
-            font-size: 14px;
-            color: #555;
-        }
-
-        .order-summary .total {
-            font-size: 18px;
-            font-weight: bold;
-            color: var(--text-color);
-            margin: 10px 0;
-        }
-
-        .order-summary .shipping {
-            font-size: 16px;
-            color: var(--primary-color);
-            margin: 10px 0;
-        }
-
-        /* Client Information */
-        .client-info {
-            padding: 20px;
-            background-color: var(--white);
-            margin: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .client-info h2 {
-            color: var(--primary-color);
-            font-size: 18px;
-            margin-top: 0;
-        }
-
-        .client-info p {
-            font-size: 14px;
-            color: #555;
-        }
-
-        .client-info form {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .client-info input {
-            padding: 8px;
-            margin: 5px 0;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 14px;
-        }
-
-        .client-info button {
-            background-color: var(--primary-color);
-            color: var(--white);
-            border: none;
-            padding: 10px;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 5px;
-            margin-top: 10px;
-        }
-
-        .client-info button:hover {
-            background-color: var(--secondary-color);
-        }
-
-        /* Finaliser Button */
-        .finaliser-button {
-            text-align: center;
-            margin: 20px;
-        }
-
-        .finaliser-button button {
-            background-color: var(--primary-color);
-            color: var(--white);
-            padding: 10px 20px;
-            text-decoration: none;
-            font-size: 16px;
-            border-radius: 5px;
-            cursor: pointer;
-            border: none;
-        }
-
-        .finaliser-button button:hover {
-            background-color: var(--secondary-color);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .navbar {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .product-info, .client-info, .order-summary {
-                margin: 10px;
-            }
-
-            .product-info img {
-                width: 80px;
-            }
-
-            .product-info h2 {
-                font-size: 18px;
-            }
-
-            .product-info ul {
-                font-size: 12px;
-            }
-
-            .price {
-                font-size: 16px;
-            }
-
-            .details {
-                font-size: 10px;
-            }
-
-            .client-info h2 {
-                font-size: 16px;
-            }
-
-            .client-info p {
-                font-size: 12px;
-            }
-
-            .client-info input {
-                font-size: 12px;
-            }
-
-            .client-info button {
-                font-size: 14px;
-            }
-        }
-    </style>
-</head>
-<body>
-    <!-- الشريط العلوي -->
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thermomix TM6</title>
-    <style>
-        .btn {
-            padding: 10px 20px;
-            text-decoration: none;
-            display: inline-block;
-            margin: 5px;
-            border-radius: 5px;
-        }
-        .btn-green {
-            background-color: green;
-            color: white;
-        }
-        .btn-white {
-            background-color: white;
-            color: black;
-            border: 1px solid black;
-        }
-        .cart {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            font-size: 24px;
-        }
-        .floating-button {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: green;
-            color: white;
-            padding: 10px;
-            border-radius: 50%;
-            cursor: pointer;
-        }
+        /* Styles pour le header */
         .navbar {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px;
-            background-color: #f8f8f8;
-            border-bottom: 1px solid #ddd;
+            justify-content: space-between; /* Espacement entre les éléments */
+            align-items: center; /* Alignement vertical au centre */
+            background: white;
+            padding: 10px 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
+
         .menu-icon {
             font-size: 24px;
             cursor: pointer;
+            color: #333;
         }
+
         .logo {
             font-size: 24px;
             font-weight: bold;
+            color: #008000;
         }
+
         .cart {
             position: relative;
             font-size: 24px;
+            color: #333;
         }
+
         #cart-count {
             position: absolute;
             top: -10px;
@@ -298,90 +49,11 @@
     </style>
 </head>
 <body>
-
-    <!-- الشريط العلوي -->
-    <div class="navbar">
-        <div class="menu-icon">☰</div>
+    <!-- Header -->
+    <header class="navbar">
+        <div class="menu-icon" aria-label="Menu">☰</div>
         <div class="logo">Thermomix</div>
-        <div class="cart">🛒 <span id="cart-count">0</span></div>
-    </div>
-    <!-- Main Content -->
-    <main>
-        <!-- Product Information -->
-        <section class="product-info">
-            <img src="FR-thermomix-eshop-thermomix-tm6-5_1x1.webp" alt="Thermomix TM6">
-            <h2>Thermomix® TM6</h2>
-            <ul>
-                <li>Mieux manger quel que soit votre niveau de cuisine</li>
-                <li>Gagner du temps au quotidien dans la préparation de vos repas</li>
-                <li>Faire des économies en cuisinant maison</li>
-                <li>Ne jamais être à court d'inspiration devant la question "on mange quoi ce soir ?"</li>
-            </ul>
-            <div class="price">1499,00 €</div>
-            <p class="details">Quantité: 1</p>
-        </section>
-
-        <!-- Order Summary -->
-        <section class="order-summary">
-            <h2>Résumé de la commande</h2>
-            <p>Sous-total: 1499,00 €</p>
-            <p class="shipping">Livraison: OFFERTE</p>
-            <p class="total">Montant total: 1499,00 € TTC</p>
-        </section>
-
-        <!-- Client Information -->
-        <section class="client-info">
-            <h2>Renseignez vos coordonnées</h2>
-            <p>Renseignez vos coordonnées dans le formulaire ci-après afin que nous vous redirigions vers le conseiller le plus proche de chez vous.</p>
-            <form id="client-form">
-                <div>
-                    <label>Civilité *</label>
-                    <div>
-                        <input type="radio" id="mr" name="civility" value="M." required>
-                        <label for="mr">M.</label>
-                        <input type="radio" id="mrs" name="civility" value="Mme" required>
-                        <label for="mrs">Mme</label>
-                    </div>
-                </div>
-                <label for="first-name">Prénom *</label>
-                <input type="text" id="first-name" name="first-name" placeholder="Prénom *" required>
-                <label for="last-name">Nom *</label>
-                <input type="text" id="last-name" name="last-name" placeholder="Nom *" required>
-                <label for="street">Rue *</label>
-                <input type="text" id="street" name="street" placeholder="Rue *" required>
-                <label for="street-number">N° *</label>
-                <input type="text" id="street-number" name="street-number" placeholder="N° *" required>
-                <label for="postal-code">Code postal *</label>
-                <input type="text" id="postal-code" name="postal-code" placeholder="Code postal *" required>
-                <label for="city">Ville *</label>
-                <input type="text" id="city" name="city" placeholder="Ville *" required>
-                <div class="finaliser-button">
-                    <button type="submit">Finaliser votre panier</button>
-                </div>
-            </form>
-        </section>
-    </main>
-
-    <script>
-        // JavaScript pour la validation du formulaire
-        document.getElementById('client-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            // Validation des champs
-            const postalCode = document.getElementById('postal-code').value;
-            if (!/^\d{5}$/.test(postalCode)) {
-                alert('Le code postal doit contenir exactement 5 chiffres.');
-                return;
-            }
-
-            const streetNumber = document.getElementById('street-number').value;
-            if (!/^\d+$/.test(streetNumber)) {
-                alert('Le numéro de rue doit contenir uniquement des chiffres.');
-                return;
-            }
-
-            alert('Formulaire soumis avec succès!');
-        });
-    </script>
+        <div class="cart" aria-label="Panier">🛒 <span id="cart-count">1</span></div>
+    </header>
 </body>
 </html>
