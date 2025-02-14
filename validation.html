@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validation de la commande</title>
+    <style>
+        /* Variables CSS */
+        :root {
+            --primary-color: #4CAF50;
+            --secondary-color: #45a049;
+            --background-color: #f9f9f9;
+            --text-color: #333;
+            --white: #ffffff;
+            --shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Styles pour le header */
+        .navbar {
+            display: flex;
+            justify-content: space-between; /* Espacement entre les éléments */
+            align-items: center; /* Alignement vertical au centre */
+            background: white;
+            padding: 10px 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .menu-icon {
+            font-size: 24px;
+            cursor: pointer;
+            color: #333;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #008000;
+            margin: 0 10px; /* Espacement entre les éléments */
+        }
+
+        .cart {
+            font-size: 24px;
+            color: #333;
+            display: flex;
+            align-items: center;
+        }
+
+        .cart span {
+            margin-left: 5px;
+        }
+
+        #cart-count {
+            background-color: green;
+            color: white;
+            font-size: 12px;
+            padding: 2px 6px;
+            border-radius: 50%;
+            margin-left: 5px;
+        }
+
+        /* General Design */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Validation Section */
+        .validation-section {
+            background-color: var(--white);
+            margin: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .validation-section h1 {
+            color: var(--primary-color);
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .validation-section p {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .validation-section .order-details {
+            text-align: left;
+            margin: 20px auto;
+            max-width: 400px;
+        }
+
+        .validation-section .order-details p {
+            font-size: 14px;
+            margin: 10px 0;
+        }
+
+        .validation-section .order-details strong {
+            color: var(--text-color);
+        }
+
+        .validation-section .payment-info {
+            background-color: #f1f1f1;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .validation-section .payment-info p {
+            font-size: 14px;
+            margin: 5px 0;
+        }
+
+        .validation-section .payment-info strong {
+            color: var(--text-color);
+        }
+
+        .validation-section .btn {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .validation-section .btn:hover {
+            background-color: var(--secondary-color);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="navbar">
+        <div class="menu-icon" aria-label="Menu">☰</div>
+        <div class="logo">Thermomix ></div>
+        <div class="cart" aria-label="Panier">🛒 <span id="cart-count">1</span></div>
+    </header>
+
+    <!-- Validation Section -->
+    <section class="validation-section">
+        <h1>Commande validée avec succès !</h1>
+        <p>Merci pour votre achat. Votre commande a bien été enregistrée.</p>
+
+        <!-- Order Details -->
+        <div class="order-details">
+            <p><strong>Produit :</strong> Thermomix® TM6</p>
+            <p><strong>Quantité :</strong> 1</p>
+            <p><strong>Prix :</strong> 1499,00 €</p>
+            <p><strong>Livraison :</strong> OFFERTE</p>
+            <p><strong>Montant total :</strong> 1499,00 € TTC</p>
+        </div>
+
+        <!-- Payment Information -->
+        <div class="payment-info">
+            <p><strong>Informations de paiement :</strong></p>
+            <p><strong>Carte bancaire :</strong> **** **** **** 3456</p>
+            <p><strong>Date d'expiration :</strong> 12/25</p>
+            <p><strong>Code de sécurité :</strong> ***</p>
+        </div>
+
+        <!-- Button to Continue -->
+        <button class="btn" onclick="window.location.href='index.html'">Retour à l'accueil</button>
+    </section>
+</body>
+</html>
