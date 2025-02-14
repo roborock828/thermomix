@@ -80,7 +80,7 @@
         }
 
         .product-info img {
-            width: 80px; /* Taille réduite de l'image */
+            width: 100px;
             height: auto;
             margin-bottom: 10px;
             border-radius: 10px;
@@ -114,19 +114,37 @@
             color: #555;
         }
 
-        /* Livraison Section */
-        .livraison {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 10px 0;
-            font-size: 16px;
-            color: var(--primary-color);
+        /* Order Summary */
+        .order-summary {
+            padding: 20px;
+            background-color: var(--white);
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        .livraison-icon {
-            font-size: 20px;
-            margin-right: 10px;
+        .order-summary h2 {
+            color: var(--primary-color);
+            font-size: 18px;
+            margin-top: 0;
+        }
+
+        .order-summary p {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .order-summary .total {
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--text-color);
+            margin: 10px 0;
+        }
+
+        .order-summary .shipping {
+            font-size: 16px;
+            color: var(--primary-color);
+            margin: 10px 0;
         }
 
         /* Client Information */
@@ -205,12 +223,12 @@
                 align-items: flex-start;
             }
 
-            .product-info, .client-info {
+            .product-info, .client-info, .order-summary {
                 margin: 10px;
             }
 
             .product-info img {
-                width: 60px; /* Taille encore plus petite pour les mobiles */
+                width: 80px;
             }
 
             .product-info h2 {
@@ -267,12 +285,16 @@
                 <li>Faire des économies en cuisinant maison</li>
                 <li>Ne jamais être à court d'inspiration devant la question "on mange quoi ce soir ?"</li>
             </ul>
-            <div class="price">499,00 €</div>
+            <div class="price">1499,00 €</div>
             <p class="details">Quantité: 1</p>
-            <div class="livraison">
-                <span class="livraison-icon">🚚</span> Livraison offerte
-            </div>
-            <div class="details">Montant total: 1499,00 € TTC</div>
+        </section>
+
+        <!-- Order Summary -->
+        <section class="order-summary">
+            <h2>Résumé de la commande</h2>
+            <p>Sous-total: 1499,00 €</p>
+            <p class="shipping">Livraison: OFFERTE</p>
+            <p class="total">Montant total: 1499,00 € TTC</p>
         </section>
 
         <!-- Client Information -->
