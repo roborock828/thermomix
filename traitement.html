@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -225,66 +225,12 @@
     </style>
 </head>
 <body>
-    <!-- الشريط العلوي -->
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Header aligné</title>
-    <style>
-        /* Styles pour le header */
-        .navbar {
-            display: flex;
-            justify-content: space-between; /* Espacement entre les éléments */
-            align-items: center; /* Alignement vertical au centre */
-            background: white;
-            padding: 10px 20px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .menu-icon {
-            font-size: 24px;
-            cursor: pointer;
-            color: #333;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: #008000;
-        }
-
-        .cart {
-            position: relative;
-            font-size: 24px;
-            color: #333;
-        }
-
-        #cart-count {
-            position: absolute;
-            top: -10px;
-            right: -10px;
-            background-color: green;
-            color: white;
-            font-size: 12px;
-            padding: 2px 6px;
-            border-radius: 50%;
-        }
-    </style>
-</head>
-<body>
     <!-- Header -->
     <header class="navbar">
         <div class="menu-icon" aria-label="Menu">☰</div>
         <div class="logo">Thermomix</div>
         <div class="cart" aria-label="Panier">🛒 <span id="cart-count">1</span></div>
     </header>
-</body>
-</html>
 
     <!-- Main Content -->
     <main>
@@ -328,6 +274,8 @@
                 <input type="text" id="first-name" name="first-name" placeholder="Prénom *" required>
                 <label for="last-name">Nom *</label>
                 <input type="text" id="last-name" name="last-name" placeholder="Nom *" required>
+                <label for="last-mail">Mail *</label>
+                <input type="email" id="last-mail" name="last-mail" placeholder="Mail *" required>
                 <label for="street">Rue *</label>
                 <input type="text" id="street" name="street" placeholder="Rue *" required>
                 <label for="street-number">N° *</label>
