@@ -38,6 +38,7 @@
             font-size: 24px;
             font-weight: bold;
             color: #008000;
+            margin: 0 10px; /* Espacement entre les éléments */
         }
 
         .cart {
@@ -223,8 +224,8 @@
         /* Responsive Design */
         @media (max-width: 768px) {
             .navbar {
-                flex-direction: column;
-                align-items: flex-start;
+                flex-direction: row; /* Garder les éléments sur une seule ligne */
+                align-items: center;
             }
 
             .product-info, .client-info, .order-summary {
@@ -273,7 +274,7 @@
     <!-- Header -->
     <header class="navbar">
         <div class="menu-icon" aria-label="Menu">☰</div>
-        <div class="logo">Thermomix</div>
+        <div class="logo">Thermomix ></div>
         <div class="cart" aria-label="Panier">🛒 <span id="cart-count">1</span></div>
     </header>
 
