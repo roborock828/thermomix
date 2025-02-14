@@ -261,6 +261,15 @@
             <h2>Renseignez vos coordonnées</h2>
             <p>Renseignez vos coordonnées dans le formulaire ci-après afin que nous vous redirigions vers le conseiller le plus proche de chez vous.</p>
             <form id="client-form">
+                <div>
+                    <label>Civilité *</label>
+                    <div>
+                        <input type="radio" id="mr" name="civility" value="M." required>
+                        <label for="mr">M.</label>
+                        <input type="radio" id="mrs" name="civility" value="Mme" required>
+                        <label for="mrs">Mme</label>
+                    </div>
+                </div>
                 <input type="text" id="first-name" name="first-name" placeholder="Prénom *" required>
                 <input type="text" id="last-name" name="last-name" placeholder="Nom *" required>
                 <input type="text" id="street" name="street" placeholder="Rue *" required>
