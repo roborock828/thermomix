@@ -338,9 +338,9 @@
     </main>
 
     <script>
-        // JavaScript pour la validation du formulaire
+        // JavaScript pour la validation du formulaire et la redirection
         document.getElementById('client-form').addEventListener('submit', function(event) {
-            event.preventDefault();
+            event.preventDefault(); // Empêche la soumission par défaut du formulaire
 
             // Validation des champs
             const postalCode = document.getElementById('postal-code').value;
@@ -355,7 +355,8 @@
                 return;
             }
 
-            alert('Formulaire soumis avec succès!');
+            // Redirection vers validation.html après validation réussie
+            window.location.href = 'validation.html';
         });
     </script>
 </body>
