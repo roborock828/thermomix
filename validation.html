@@ -15,11 +15,21 @@
             --shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
-        /* Styles pour le header */
+        /* General Design */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Header */
         .navbar {
             display: flex;
-            justify-content: space-between; /* Espacement entre les éléments */
-            align-items: center; /* Alignement vertical au centre */
+            justify-content: space-between;
+            align-items: center;
             background: white;
             padding: 10px 20px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -38,7 +48,7 @@
             font-size: 24px;
             font-weight: bold;
             color: #008000;
-            margin: 0 10px; /* Espacement entre les éléments */
+            margin: 0 10px;
         }
 
         .cart {
@@ -61,71 +71,91 @@
             margin-left: 5px;
         }
 
-        /* General Design */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            line-height: 1.6;
+        /* Main Content */
+        .main-content {
+            padding: 20px;
         }
 
-        /* Validation Section */
-        .validation-section {
+        /* Section Paiement */
+        .payment-section {
             background-color: var(--white);
             margin: 20px;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            text-align: center;
         }
 
-        .validation-section h1 {
+        .payment-section h1 {
             color: var(--primary-color);
             font-size: 24px;
             margin-bottom: 20px;
         }
 
-        .validation-section p {
-            font-size: 16px;
-            color: #555;
-            margin-bottom: 20px;
+        .payment-section h2 {
+            font-size: 18px;
+            margin-bottom: 10px;
         }
 
-        .validation-section .order-details {
-            text-align: left;
-            margin: 20px auto;
-            max-width: 400px;
-        }
-
-        .validation-section .order-details p {
+        .payment-section p {
             font-size: 14px;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .payment-section label {
+            font-size: 14px;
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+
+        .payment-section input {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .payment-section .card-details {
+            display: flex;
+            gap: 10px;
+        }
+
+        .payment-section .card-details input {
+            flex: 1;
+        }
+
+        /* Section Commande */
+        .order-section {
+            background-color: var(--white);
+            margin: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .order-section h2 {
+            color: var(--primary-color);
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .order-section p {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .order-section .total {
+            font-size: 16px;
+            font-weight: bold;
+            color: var(--text-color);
             margin: 10px 0;
         }
 
-        .validation-section .order-details strong {
-            color: var(--text-color);
-        }
-
-        .validation-section .payment-info {
-            background-color: #f1f1f1;
-            padding: 15px;
-            border-radius: 5px;
-            margin-top: 20px;
-            text-align: left;
-        }
-
-        .validation-section .payment-info p {
-            font-size: 14px;
-            margin: 5px 0;
-        }
-
-        .validation-section .payment-info strong {
-            color: var(--text-color);
-        }
-
-        .validation-section .btn {
+        .order-section .btn {
             background-color: var(--primary-color);
             color: var(--white);
             border: none;
@@ -134,9 +164,10 @@
             cursor: pointer;
             border-radius: 5px;
             margin-top: 20px;
+            width: 100%;
         }
 
-        .validation-section .btn:hover {
+        .order-section .btn:hover {
             background-color: var(--secondary-color);
         }
     </style>
@@ -149,30 +180,45 @@
         <div class="cart" aria-label="Panier">🛒 <span id="cart-count">1</span></div>
     </header>
 
-    <!-- Validation Section -->
-    <section class="validation-section">
-        <h1>Commande validée avec succès !</h1>
-        <p>Merci pour votre achat. Votre commande a bien été enregistrée.</p>
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Section Paiement -->
+        <section class="payment-section">
+            <h1>VISA</h1>
+            <h2>Carte bancaire</h2>
+            <p>Les informations que vous nous transmettez sur cette page sont cryptées, vous pouvez saisir vos données bancaires en toute sécurité.</p>
+            <p><strong>Après validation de votre paiement, veuillez revérifier et valider votre commande à l’étape suivante.</strong></p>
 
-        <!-- Order Details -->
-        <div class="order-details">
-            <p><strong>Produit :</strong> Thermomix® TM6</p>
+            <form>
+                <label for="card-name">Nom sur la carte *</label>
+                <input type="text" id="card-name" placeholder="J. Smith" required>
+
+                <label for="card-number">Numéro de carte *</label>
+                <input type="text" id="card-number" placeholder="1234 5678 9012 3456" required>
+
+                <div class="card-details">
+                    <div>
+                        <label for="expiry-date">Date d'expiration *</label>
+                        <input type="text" id="expiry-date" placeholder="MM/AA" required>
+                    </div>
+                    <div>
+                        <label for="cvv">CVV/CVC *</label>
+                        <input type="text" id="cvv" placeholder="123" required>
+                    </div>
+                </div>
+            </form>
+        </section>
+
+        <!-- Section Commande -->
+        <section class="order-section">
+            <h2>Thermomix TM6</h2>
+            <p>Livraison sous 6 semaines</p>
             <p><strong>Quantité :</strong> 1</p>
-            <p><strong>Prix :</strong> 1499,00 €</p>
+            <p><strong>Sous-total :</strong> 1499,00 €</p>
             <p><strong>Livraison :</strong> OFFERTE</p>
-            <p><strong>Montant total :</strong> 1499,00 € TTC</p>
-        </div>
-
-        <!-- Payment Information -->
-        <div class="payment-info">
-            <p><strong>Informations de paiement :</strong></p>
-            <p><strong>Carte bancaire :</strong> **** **** **** 3456</p>
-            <p><strong>Date d'expiration :</strong> 12/25</p>
-            <p><strong>Code de sécurité :</strong> ***</p>
-        </div>
-
-        <!-- Button to Continue -->
-        <button class="btn" onclick="window.location.href='index.html'">Retour à l'accueil</button>
-    </section>
+            <p class="total"><strong>Montant total :</strong> 1499,00 € TTC</p>
+            <button class="btn">Commander maintenant</button>
+        </section>
+    </main>
 </body>
 </html>
