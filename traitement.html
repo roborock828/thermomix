@@ -8,7 +8,221 @@
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/flagpack@1.0.0/dist/flagpack.min.css" rel="stylesheet" />
     <style>
-        /* ... (ton CSS existant) ... */
+        /* Variables CSS */
+        :root {
+            --primary-color: #4CAF50;
+            --secondary-color: #45a049;
+            --background-color: #f9f9f9;
+            --text-color: #333;
+            --white: #ffffff;
+            --shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Styles pour le header */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            padding: 10px 20px;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .menu-icon {
+            font-size: 24px;
+            cursor: pointer;
+            color: #333;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #008000;
+            margin: 0 10px;
+        }
+
+        .cart {
+            font-size: 24px;
+            color: #333;
+            display: flex;
+            align-items: center;
+        }
+
+        .cart span {
+            margin-left: 5px;
+        }
+
+        #cart-count {
+            background-color: green;
+            color: white;
+            font-size: 12px;
+            padding: 2px 6px;
+            border-radius: 50%;
+            margin-left: 5px;
+        }
+
+        /* General Design */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Product Information */
+        .product-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background-color: var(--white);
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .product-info img {
+            width: 100px;
+            height: auto;
+            margin-bottom: 10px;
+            border-radius: 10px;
+        }
+
+        .product-info h2 {
+            color: var(--primary-color);
+            font-size: 20px;
+            margin-top: 0;
+        }
+
+        .product-info ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            font-size: 14px;
+        }
+
+        .product-info ul li {
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--text-color);
+            margin: 10px 0;
+        }
+
+        .details {
+            font-size: 12px;
+            color: #555;
+        }
+
+        /* Order Summary */
+        .order-summary {
+            padding: 20px;
+            background-color: var(--white);
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .order-summary h2 {
+            color: var(--primary-color);
+            font-size: 18px;
+            margin-top: 0;
+        }
+
+        .order-summary p {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .order-summary .total {
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--text-color);
+            margin: 10px 0;
+        }
+
+        .order-summary .shipping {
+            font-size: 16px;
+            color: var(--primary-color);
+            margin: 10px 0;
+        }
+
+        /* Client Information */
+        .client-info {
+            padding: 20px;
+            background-color: var(--white);
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .client-info h2 {
+            color: var(--primary-color);
+            font-size: 18px;
+            margin-top: 0;
+        }
+
+        .client-info p {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .client-info form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .client-info input {
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .client-info button {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .client-info button:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* Finaliser Button */
+        .finaliser-button {
+            text-align: center;
+            margin: 20px;
+        }
+
+        .finaliser-button button {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            border: none;
+        }
+
+        .finaliser-button button:hover {
+            background-color: var(--secondary-color);
+        }
 
         /* Styles pour les drapeaux */
         .fp {
@@ -42,38 +256,140 @@
         .select2-container--default .select2-selection--single .select2-selection__arrow {
             height: 36px;
         }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: row;
+                align-items: center;
+            }
+
+            .product-info, .client-info, .order-summary {
+                margin: 10px;
+            }
+
+            .product-info img {
+                width: 80px;
+            }
+
+            .product-info h2 {
+                font-size: 18px;
+            }
+
+            .product-info ul {
+                font-size: 12px;
+            }
+
+            .price {
+                font-size: 16px;
+            }
+
+            .details {
+                font-size: 10px;
+            }
+
+            .client-info h2 {
+                font-size: 16px;
+            }
+
+            .client-info p {
+                font-size: 12px;
+            }
+
+            .client-info input {
+                font-size: 12px;
+            }
+
+            .client-info button {
+                font-size: 14px;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- ... (ton code existant) ... -->
+    <!-- Header -->
+    <header class="navbar">
+        <div class="menu-icon" aria-label="Menu">☰</div>
+        <div class="logo">Thermomix ></div>
+        <div class="cart" aria-label="Panier">🛒 <span id="cart-count">1</span></div>
+    </header>
 
-    <!-- Client Information -->
-    <section class="client-info">
-        <h2>Renseignez vos coordonnées</h2>
-        <p>Renseignez vos coordonnées dans le formulaire ci-après afin que nous vous redirigions vers le conseiller le plus proche de chez vous.</p>
-        <form id="client-form">
-            <!-- ... (autres champs du formulaire) ... -->
+    <!-- Main Content -->
+    <main>
+        <!-- Product Information -->
+        <section class="product-info">
+            <img src="FR-thermomix-eshop-thermomix-tm6-5_1x1.webp" alt="Thermomix TM6">
+            <h2>Thermomix® TM6</h2>
+            <ul>
+                <li>Mieux manger quel que soit votre niveau de cuisine</li>
+                <li>Gagner du temps au quotidien dans la préparation de vos repas</li>
+                <li>Faire des économies en cuisinant maison</li>
+                <li>Ne jamais être à court d'inspiration devant la question "on mange quoi ce soir ?"</li>
+            </ul>
+            <div class="price">499,00 €</div>
+            <p class="details">Quantité: 1</p>
+        </section>
 
-            <label for="country">Pays *</label>
-            <select id="country" name="country" class="form-control" required>
-                <option value="">Choisir un pays</option>
-                <option value="FR" data-flag="fr">France</option>
-                <option value="ES" data-flag="es">Espagne</option>
-                <option value="DE" data-flag="de">Allemagne</option>
-                <option value="IT" data-flag="it">Italie</option>
-                <option value="PT" data-flag="pt">Portugal</option>
-                <option value="BE" data-flag="be">Belgique</option>
-                <option value="NL" data-flag="nl">Pays-Bas</option>
-                <option value="CH" data-flag="ch">Suisse</option>
-                <option value="GB" data-flag="gb">Royaume-Uni</option>
-                <option value="AT" data-flag="at">Autriche</option>
-            </select>
+        <!-- Order Summary -->
+        <section class="order-summary">
+            <h2>Résumé de la commande</h2>
+            <p>Sous-total: 499,00 €</p>
+            <p class="shipping">Livraison: GRATUIT</p>
+            <p class="total">Montant total: 499,00 € TTC</p>
+        </section>
 
-            <div class="finaliser-button">
-                <button type="submit">Finaliser votre panier</button>
-            </div>
-        </form>
-    </section>
+        <!-- Client Information -->
+        <section class="client-info">
+            <h2>Renseignez vos coordonnées</h2>
+            <p>Renseignez vos coordonnées dans le formulaire ci-après afin que nous vous redirigions vers le conseiller le plus proche de chez vous.</p>
+            <form id="client-form">
+                <div>
+                    <label>Civilité *</label>
+                    <div>
+                        <input type="radio" id="mr" name="civility" value="M." required>
+                        <label for="mr">M.</label>
+                        <input type="radio" id="mrs" name="civility" value="Mme" required>
+                        <label for="mrs">Mme</label>
+                    </div>
+                </div>
+                <label for="first-name">Prénom *</label>
+                <input type="text" id="first-name" name="first-name" placeholder="Prénom *" required>
+                <label for="last-name">Nom *</label>
+                <input type="text" id="last-name" name="last-name" placeholder="Nom *" required>
+                <label for="last-mail">Mail *</label>
+                <input type="email" id="last-mail" name="last-mail" placeholder="Mail *" required>
+                <label for="street">Rue *</label>
+                <input type="text" id="street" name="street" placeholder="Rue *" required>
+                <label for="street-number">N° *</label>
+                <input type="text" id="street-number" name="street-number" placeholder="N° *" required>
+                <label for="postal-code">Code postal *</label>
+                <input type="text" id="postal-code" name="postal-code" placeholder="Code postal *" required>
+                <label for="city">Ville *</label>
+                <input type="text" id="city" name="city" placeholder="Ville *" required>
+                <label for="phone">Numéro de téléphone *</label>
+                <input type="tel" id="phone" name="phone" placeholder="Numéro de téléphone *" required>
+
+                <label for="country">Pays *</label>
+                <select id="country" name="country" class="form-control" required>
+                    <option value="">Choisir un pays</option>
+                    <option value="FR" data-flag="fr">France</option>
+                    <option value="ES" data-flag="es">Espagne</option>
+                    <option value="DE" data-flag="de">Allemagne</option>
+                    <option value="IT" data-flag="it">Italie</option>
+                    <option value="PT" data-flag="pt">Portugal</option>
+                    <option value="BE" data-flag="be">Belgique</option>
+                    <option value="NL" data-flag="nl">Pays-Bas</option>
+                    <option value="CH" data-flag="ch">Suisse</option>
+                    <option value="GB" data-flag="gb">Royaume-Uni</option>
+                    <option value="AT" data-flag="at">Autriche</option>
+                </select>
+
+                <div class="finaliser-button">
+                    <button type="submit">Finaliser votre panier</button>
+                </div>
+            </form>
+        </section>
+    </main>
 
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
