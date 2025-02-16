@@ -343,22 +343,34 @@
                 </div>
 
 <label for="country">Pays *</label>
-<select id="country" name="country" class="form-control" required>
+<select id="country" name="country" class="form-control" required onchange="updatePhoneCode()">
     <option value="">Choisir un pays *</option>
-    <option value="FR">🇫🇷 France (+33)</option>
-    <option value="ES">🇪🇸 Espagne (+34)</option>
-    <option value="BE">🇧🇪 Belgique (+32)</option>
-    <option value="DE">🇩🇪 Allemagne (+49)</option>
-    <option value="IT">🇮🇹 Italie (+39)</option>
-    <option value="PT">🇵🇹 Portugal (+351)</option>
-    <option value="NL">🇳🇱 Pays-Bas (+31)</option>
-    <option value="CH">🇨🇭 Suisse (+41)</option>
-    <option value="GB">🇬🇧 Royaume-Uni (+44)</option>
-    <option value="AT">🇦🇹 Autriche (+43)</option>
+    <option value="FR" data-code="+33">🇫🇷 France (+33)</option>
+    <option value="ES" data-code="+34">🇪🇸 Espagne (+34)</option>
+    <option value="BE" data-code="+32">🇧🇪 Belgique (+32)</option>
+    <option value="DE" data-code="+49">🇩🇪 Allemagne (+49)</option>
+    <option value="IT" data-code="+39">🇮🇹 Italie (+39)</option>
+    <option value="PT" data-code="+351">🇵🇹 Portugal (+351)</option>
+    <option value="NL" data-code="+31">🇳🇱 Pays-Bas (+31)</option>
+    <option value="CH" data-code="+41">🇨🇭 Suisse (+41)</option>
+    <option value="GB" data-code="+44">🇬🇧 Royaume-Uni (+44)</option>
+    <option value="AT" data-code="+43">🇦🇹 Autriche (+43)</option>
 </select>
 
-                <label for="phone">Numéro de téléphone *</label>
-                <input type="tel" id="phone" name="phone" placeholder="Numéro de téléphone *" required>
+<label for="phone">Numéro de téléphone *</label>
+<div style="display: flex; align-items: center;">
+    <input type="text" id="phoneCode" value="+" readonly style="width: 50px; text-align: center; margin-right: 5px;">
+    <input type="tel" id="phone" name="phone" placeholder="Numéro de téléphone *" required>
+</div>
+
+<script>
+    function updatePhoneCode() {
+        let select = document.getElementById("country");
+        let selectedOption = select.options[select.selectedIndex];
+        let code = selectedOption.getAttribute("data-code");
+        document.getElementById("phoneCode").value = code ? code : "+";
+    }
+</script>
                 <label for="street">Rue *</label>
                 <input type="text" id="street" name="street" placeholder="Rue *" required>
                 <label for="street-number">N° *</label>
