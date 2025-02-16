@@ -6,7 +6,6 @@
     <title>Traitement de Commande - Thermomix® TM6</title>
     <!-- Bibliothèques CSS -->
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/flagpack@1.0.0/dist/flagpack.min.css" rel="stylesheet" />
     <style>
         /* Variables CSS */
         :root {
@@ -224,23 +223,6 @@
             background-color: var(--secondary-color);
         }
 
-        /* Styles pour les drapeaux */
-        .fp {
-            display: inline-block;
-            width: 16px;
-            height: 12px;
-            margin-right: 5px;
-            vertical-align: middle;
-            background-size: cover;
-        }
-
-        /* Style pour le globe */
-        .fp-globe {
-            font-size: 16px;
-            margin-right: 5px;
-            vertical-align: middle;
-        }
-
         /* Styles pour Select2 */
         .select2-container .select2-selection--single {
             height: 38px;
@@ -371,17 +353,17 @@
 
                 <label for="country">Pays *</label>
                 <select id="country" name="country" class="form-control" required>
-                    <option value="">Choisir un pays</option>
-                    <option value="FR" data-flag="fr">France</option>
-                    <option value="ES" data-flag="es">Espagne</option>
-                    <option value="DE" data-flag="de">Allemagne</option>
-                    <option value="IT" data-flag="it">Italie</option>
-                    <option value="PT" data-flag="pt">Portugal</option>
-                    <option value="BE" data-flag="be">Belgique</option>
-                    <option value="NL" data-flag="nl">Pays-Bas</option>
-                    <option value="CH" data-flag="ch">Suisse</option>
-                    <option value="GB" data-flag="gb">Royaume-Uni</option>
-                    <option value="AT" data-flag="at">Autriche</option>
+                    <option value="">🌍 Choisir un pays</option>
+                    <option value="FR">🇫🇷 France</option>
+                    <option value="ES">🇪🇸 Espagne</option>
+                    <option value="BE">🇧🇪 Belgique</option>
+                    <option value="DE">🇩🇪 Allemagne</option>
+                    <option value="IT">🇮🇹 Italie</option>
+                    <option value="PT">🇵🇹 Portugal</option>
+                    <option value="NL">🇳🇱 Pays-Bas</option>
+                    <option value="CH">🇨🇭 Suisse</option>
+                    <option value="GB">🇬🇧 Royaume-Uni</option>
+                    <option value="AT">🇦🇹 Autriche</option>
                 </select>
 
                 <div class="finaliser-button">
@@ -396,21 +378,7 @@
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script>
         $(document).ready(function() {
-            $('#country').select2({
-                templateResult: formatCountry,
-                templateSelection: formatCountry
-            });
-
-            function formatCountry(country) {
-                if (!country.id) {
-                    // Afficher un globe (🌍) pour l'option par défaut
-                    return $('<span><span class="fp fp-globe">🌍</span> Choisir un pays</span>');
-                }
-                var $country = $(
-                    '<span><span class="fp fp-' + country.element.getAttribute('data-flag') + '"></span> ' + country.text + '</span>'
-                );
-                return $country;
-            }
+            $('#country').select2();
         });
     </script>
 </body>
