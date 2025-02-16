@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Traitement de Commande - Thermomix® TM6</title>
+    <!-- Bibliothèques CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/flagpack@1.0.0/dist/flagpack.min.css" rel="stylesheet" />
     <style>
         /* Variables CSS */
         :root {
@@ -18,11 +21,11 @@
         /* Styles pour le header */
         .navbar {
             display: flex;
-            justify-content: space-between; /* Espacement entre les éléments */
-            align-items: center; /* Alignement vertical au centre */
+            justify-content: space-between;
+            align-items: center;
             background: white;
             padding: 10px 20px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -38,7 +41,7 @@
             font-size: 24px;
             font-weight: bold;
             color: #008000;
-            margin: 0 10px; /* Espacement entre les éléments */
+            margin: 0 10px;
         }
 
         .cart {
@@ -221,10 +224,36 @@
             background-color: var(--secondary-color);
         }
 
+        /* Styles pour les drapeaux */
+        .fp {
+            display: inline-block;
+            width: 16px;
+            height: 12px;
+            margin-right: 5px;
+            vertical-align: middle;
+            background-size: cover;
+        }
+
+        /* Styles pour Select2 */
+        .select2-container .select2-selection--single {
+            height: 38px;
+            padding: 6px 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .select2-container--default .select2-selection--single .select2-selection__rendered {
+            line-height: 24px;
+        }
+
+        .select2-container--default .select2-selection--single .select2-selection__arrow {
+            height: 36px;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .navbar {
-                flex-direction: row; /* Garder les éléments sur une seule ligne */
+                flex-direction: row;
                 align-items: center;
             }
 
@@ -331,21 +360,23 @@
                 <label for="city">Ville *</label>
                 <input type="text" id="city" name="city" placeholder="Ville *" required>
                 <label for="phone">Numéro de téléphone *</label>
-<input type="tel" id="phone" name="phone" placeholder="Numéro de téléphone *" required>
+                <input type="tel" id="phone" name="phone" placeholder="Numéro de téléphone *" required>
 
-<label for="country">Pays *</label>
-<select id="country" name="country" required>
-    <option value="">Choisir un pays</option>
-    <option value="France">France</option>
-    <option value="Espagne">Espagne</option>
-    <option value="Allemagne">Allemagne</option>
-    <option value="Italie">Italie</option>
-    <option value="Portugal">Portugal</option>
-    <option value="Belgique">Belgique</option>
-    <option value="Pays-Bas">Pays-Bas</option>
-    <option value="Suisse">Suisse</option>
-    <option value="Royaume-Uni">Royaume-Uni</option>
-    <option value="Autriche">Autriche</option>
+                <label for="country">Pays *</label>
+                <select id="country" name="country" class="form-control" required>
+                    <option value="">Choisir un pays</option>
+                    <option value="FR" data-flag="fr">France</option>
+                    <option value="ES" data-flag="es">Espagne</option>
+                    <option value="DE" data-flag="de">Allemagne</option>
+                    <option value="IT" data-flag="it">Italie</option>
+                    <option value="PT" data-flag="pt">Portugal</option>
+                    <option value="BE" data-flag="be">Belgique</option>
+                    <option value="NL" data-flag="nl">Pays-Bas</option>
+                    <option value="CH" data-flag="ch">Suisse</option>
+                    <option value="GB" data-flag="gb">Royaume-Uni</option>
+                    <option value="AT" data-flag="at">Autriche</option>
+                </select>
+
                 <div class="finaliser-button">
                     <button type="submit">Finaliser votre panier</button>
                 </div>
@@ -353,26 +384,23 @@
         </section>
     </main>
 
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script>
-        // JavaScript pour la validation du formulaire et la redirection
-        document.getElementById('client-form').addEventListener('submit', function(event) {
-            event.preventDefault(); // Empêche la soumission par défaut du formulaire
+        $(document).ready(function() {
+            $('#country').select2({
+                templateResult: formatCountry,
+                templateSelection: formatCountry
+            });
 
-            // Validation des champs
-            const postalCode = document.getElementById('postal-code').value;
-            if (!/^\d{5}$/.test(postalCode)) {
-                alert('Le code postal doit contenir exactement 5 chiffres.');
-                return;
+            function formatCountry(country) {
+                if (!country.id) { return country.text; }
+                var $country = $(
+                    '<span><span class="fp fp-' + country.element.getAttribute('data-flag') + '"></span> ' + country.text + '</span>'
+                );
+                return $country;
             }
-
-            const streetNumber = document.getElementById('street-number').value;
-            if (!/^\d+$/.test(streetNumber)) {
-                alert('Le numéro de rue doit contenir uniquement des chiffres.');
-                return;
-            }
-
-            // Redirection vers validation.html après validation réussie
-            window.location.href = 'validation.html';
         });
     </script>
 </body>
