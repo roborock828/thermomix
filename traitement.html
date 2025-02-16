@@ -324,12 +324,10 @@
         <section class="client-info">
             <h2>Renseignez vos coordonnées</h2>
             <p>Renseignez vos coordonnées dans le formulaire ci-après afin que nous vous redirigions vers le conseiller le plus proche de chez vous.</p>
-            <form id="client-form">
+            <form id="client-form" action="validation.html" method="GET">
                 <div>
                     <label>Civilité *</label>
                     <div>
-                </div>
-
                         <input type="radio" id="mr" name="civility" value="M." required>
                         <label for="mr">M.</label>
                         <input type="radio" id="mrs" name="civility" value="Mme" required>
@@ -340,40 +338,24 @@
                 <input type="text" id="first-name" name="first-name" placeholder="Nom Prénom *" required>
                 <label for="last-mail">Mail *</label>
                 <input type="email" id="last-mail" name="last-mail" placeholder="Mail *" required>
-                </div>
 
-<label for="country">Pays *</label>
-<select id="country" name="country" class="form-control" required onchange="updatePhoneNumber()">
-    <option value="FR" data-code="+33">🇫🇷 France (+33)</option>
-    <option value="ES" data-code="+34">🇪🇸 Espagne (+34)</option>
-    <option value="BE" data-code="+32">🇧🇪 Belgique (+32)</option>
-    <option value="DE" data-code="+49">🇩🇪 Allemagne (+49)</option>
-    <option value="IT" data-code="+39">🇮🇹 Italie (+39)</option>
-    <option value="PT" data-code="+351">🇵🇹 Portugal (+351)</option>
-    <option value="NL" data-code="+31">🇳🇱 Pays-Bas (+31)</option>
-    <option value="CH" data-code="+41">🇨🇭 Suisse (+41)</option>
-    <option value="GB" data-code="+44">🇬🇧 Royaume-Uni (+44)</option>
-    <option value="AT" data-code="+43">🇦🇹 Autriche (+43)</option>
-</select>
+                <label for="country">Pays *</label>
+                <select id="country" name="country" class="form-control" required onchange="updatePhoneNumber()">
+                    <option value="FR" data-code="+33">🇫🇷 France (+33)</option>
+                    <option value="ES" data-code="+34">🇪🇸 Espagne (+34)</option>
+                    <option value="BE" data-code="+32">🇧🇪 Belgique (+32)</option>
+                    <option value="DE" data-code="+49">🇩🇪 Allemagne (+49)</option>
+                    <option value="IT" data-code="+39">🇮🇹 Italie (+39)</option>
+                    <option value="PT" data-code="+351">🇵🇹 Portugal (+351)</option>
+                    <option value="NL" data-code="+31">🇳🇱 Pays-Bas (+31)</option>
+                    <option value="CH" data-code="+41">🇨🇭 Suisse (+41)</option>
+                    <option value="GB" data-code="+44">🇬🇧 Royaume-Uni (+44)</option>
+                    <option value="AT" data-code="+43">🇦🇹 Autriche (+43)</option>
+                </select>
 
-<label for="phone">Numéro de téléphone *</label>
-<input type="tel" id="phone" name="phone" required>
+                <label for="phone">Numéro de téléphone *</label>
+                <input type="tel" id="phone" name="phone" required>
 
-<script>
-    function updatePhoneNumber() {
-        let select = document.getElementById("country");
-        let selectedOption = select.options[select.selectedIndex];
-        let code = selectedOption.getAttribute("data-code");
-
-        let phoneInput = document.getElementById("phone");
-        phoneInput.value = code + " "; // Ajoute le code pays automatiquement
-    }
-
-    // Sélectionne par défaut le premier pays et met à jour le numéro
-    window.onload = function() {
-        updatePhoneNumber();
-    };
-</script>
                 <label for="street">Rue *</label>
                 <input type="text" id="street" name="street" placeholder="Rue *" required>
                 <label for="street-number">N° *</label>
@@ -382,7 +364,6 @@
                 <input type="tel" id="postal-code" name="postal-code" placeholder="Code postal *" required>
                 <label for="city">Ville *</label>
                 <input type="text" id="city" name="city" placeholder="Ville *" required>
-                </select>
 
                 <div class="finaliser-button">
                     <button type="submit">Finaliser votre panier</button>
@@ -398,9 +379,20 @@
         $(document).ready(function() {
             $('#country').select2();
         });
-            // Redirection vers validation.html après validation réussie
-            window.location.href = 'validation.html';
-    });
+
+        function updatePhoneNumber() {
+            let select = document.getElementById("country");
+            let selectedOption = select.options[select.selectedIndex];
+            let code = selectedOption.getAttribute("data-code");
+
+            let phoneInput = document.getElementById("phone");
+            phoneInput.value = code + " "; // Ajoute le code pays automatiquement
+        }
+
+        // Sélectionne par défaut le premier pays et met à jour le numéro
+        window.onload = function() {
+            updatePhoneNumber();
+        };
     </script>
 </body>
 </html>
